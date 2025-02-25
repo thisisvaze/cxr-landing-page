@@ -6,13 +6,12 @@ import Wrapper from "./global/wrapper"
 import { LucideProps } from 'lucide-react';
 import Images from "./global/images";
 const COMPANY_LINKS = [
-
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" }
 ];
 
 const SOCIAL_LINKS = [
-    { icon: Linkedin, href: "https://www.linkedin.com/company/curiosityxr" }
+    { icon: Linkedin, href: "https://www.linkedin.com/company/curiosityxr" },
+    { icon: Twitter, href: "https://x.com/curiosityxr" },
 ];
 
 const Footer = () => {
@@ -97,7 +96,7 @@ const Footer = () => {
                 <AnimationContainer animation="fadeUp" delay={1}>
                     <div className="mt-16 border-t border-border/40 py-8 flex flex-col md:flex-row items-center justify-center">
                         <p className="text-sm text-muted-foreground">
-                            © {new Date().getFullYear()} CuriosityXR. All rights reserved.
+                        {new Date().getFullYear()} CuriosityXR
                         </p>
                     </div>
                 </AnimationContainer>

@@ -1,12 +1,13 @@
 export const NAV_LINKS = [
+
     {
-        name: "Partner with us",
-        link: "https://forms.gle/234567890",
+        name: "Follow on X",
+        link: "https://x.com/curiosityxr",
         target: "_blank",
     },
     {
-        name: "Follow on X",
-        link: "https://www.linkedin.com/in/curiosityxr/",
+        name: "Join Discord",
+        link: "https://discord.gg/aF2cRG6k62",
         target: "_blank",
     },
 ];

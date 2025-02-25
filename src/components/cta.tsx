@@ -52,12 +52,12 @@ const CTA = () => {
                 <div className="flex flex-col items-center justify-center w-full z-30">
 
                     <AnimationContainer animation="fadeUp" delay={1.1} className="mb-2">
-                        <h3 className="font-architects-daughter text-xl md:text-2xl text-cyan-500 font-semibold">
+                        <h3 className="font-architects-daughter text-xl md:text-2xl from-gray-500 via-gray-300 to-gray-500 bg-gradient-to-r bg-clip-text text-transparent font-semibold">
                             #1 AI LEARNING APP ON META QUEST
                         </h3>
                     </AnimationContainer>
 
-                    <AnimationContainer animation="fadeUp" delay={1.2} className="w-full max-w-xs my-16">
+                    <AnimationContainer animation="fadeUp" delay={1.2} className="w-full max-w-[200px] my-16">
                             <Image
                                 src="/images/cxr_sticker.png"
                                 alt="CXR Learning Experience"
@@ -83,7 +83,7 @@ const CTA = () => {
                     <AnimationContainer animation="fadeUp" delay={1}>
                         <div className="flex items-center flex-col gap-2">
                   
-                            <Link href="/signin">
+                            <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
                                 <Button className="magic-button mt-6">
                                     <span className="relative z-10">Get on Meta Quest</span>
                                 </Button>

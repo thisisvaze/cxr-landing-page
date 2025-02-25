@@ -14,10 +14,6 @@ const HIGHLIGHTS = [
         label: "Personalized Learning"
     },
     {
-        icon: "/icons/clock.svg",
-        label: "Unlimited Access"
-    },
-    {
         icon: "/icons/magicpen.svg",
         label: "1M+ 3D models"
     }
@@ -38,8 +34,8 @@ const CTA = () => {
                 <div className="flex -mt-32 flex-col items-center text-center relative gap-4 py-20 lg:py-32 overflow-hidden z-0">
                     <div className="absolute inset-x-0 bottom-0 w-full h-1/2 z-10"></div>
 
-                    <AnimationContainer animation="scaleUp" delay={0.2} className="w-full mx-auto">
-                        <div className="absolute -top-1/2 inset-x-0 mx-auto bg-foreground/50 rounded-full size-1/2 blur-[4rem] lg:blur-[10rem]"></div>
+                    <AnimationContainer animation="fadeUp" delay={0.5} className="w-full mx-auto">
+                        <div className="absolute -top-1/2 inset-x-0 mx-auto bg-foreground/50 rounded-full size-1/2 blur-[1rem] lg:blur-[1rem] opacity-80 transition-all duration-1000"></div>
                     </AnimationContainer>
 
                     <AnimationContainer animation="scaleUp" delay={0.3}>
@@ -58,7 +54,7 @@ const CTA = () => {
                             </h2>
                         </AnimationContainer>
 
-                        <AnimationContainer animation="fadeUp" delay={0.5}>
+                        <AnimationContainer animation="fadeUp" delay={0.6}>
                             <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-lg mx-auto mt-4">
                             The first AI Teacher that
                             assists in 3D

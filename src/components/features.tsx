@@ -34,11 +34,11 @@ const Features = () => {
                             <div className="flex flex-col justify-between h-full">
                                 <div className="p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                                        <div className="space-y-4">
-                                            <h3 className="text-xl md:text-2xl font-medium">
+                                        <div className="space-y-0">
+                                            <h3 className="text-lg md:text-xl font-medium">
                                                 {FEATURES[0].title}
                                             </h3>
-                                            <p className="text-sm md:text-base text-muted-foreground max-w-md">
+                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
                                                 {FEATURES[0].description}
                                             </p>
                                         </div>
@@ -76,11 +76,11 @@ const Features = () => {
                             <div className="flex flex-col justify-between h-full">
                                 <div className="p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.8}>
-                                        <div className="space-y-4">
-                                            <h3 className="text-xl md:text-2xl font-medium">
+                                        <div className="space-y-0">
+                                            <h3 className="text-lg md:text-xl font-medium">
                                                 {FEATURES[2].title}
                                             </h3>
-                                            <p className="text-sm md:text-base text-muted-foreground max-w-md">
+                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
                                                 {FEATURES[2].description}
                                             </p>
                                         </div>
@@ -107,11 +107,11 @@ const Features = () => {
                             <div className="flex flex-col justify-between h-full">
                                 <div className="p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.9}>
-                                        <div className="space-y-4">
-                                            <h3 className="text-xl md:text-2xl font-medium">
+                                        <div className="space-y-2">
+                                            <h3 className="text-lg md:text-xl font-medium">
                                                 {FEATURES[3].title}
                                             </h3>
-                                            <p className="text-sm md:text-base text-muted-foreground max-w-md">
+                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
                                                 {FEATURES[3].description}
                                             </p>
                                         </div>
@@ -138,18 +138,18 @@ const Features = () => {
                             <div className="flex flex-col justify-between h-full">
                                 <div className="p-8">
                                     <AnimationContainer animation="fadeUp" delay={1}>
-                                        <div className="space-y-4">
-                                            <h3 className="text-xl md:text-2xl font-medium">
+                                        <div className="">
+                                            <h3 className="text-lg md:text-xl font-medium">
                                                 {FEATURES[4].title}
                                             </h3>
-                                            <p className="text-sm md:text-base text-muted-foreground max-w-md">
+                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
                                                 {FEATURES[4].description}
                                             </p>
                                         </div>
                                     </AnimationContainer>
                                 </div>
                                 <AnimationContainer animation="fadeUp" delay={1.1}>
-                                    <div className="relative w-full h-[370px]">
+                                    <div className="relative w-full h-[390px]">
                                         <Image
                                             src={FEATURES[4].image}
                                             alt={FEATURES[4].title}

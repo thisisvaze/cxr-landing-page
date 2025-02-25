@@ -15,7 +15,8 @@ const Hero = () => {
     
     const companies = [
         Images.comp1,
-        Images.comp2
+        Images.comp2,
+        Images.comp3,
     ];
 
     const trailerUrl = "https://www.youtube.com/watch?v=um-3guz9FO0";
@@ -38,7 +39,7 @@ const Hero = () => {
                         />
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h1 className="text-4xl font-heading lg:text-5xl font-semibold !leading-tight text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-300">
+                        <h1 className="text-4xl font-heading lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-neutral-100">
                             Learn in 3D with AI
                         </h1>
                     </AnimationContainer>

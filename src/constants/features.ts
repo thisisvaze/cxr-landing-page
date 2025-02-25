@@ -25,7 +25,7 @@ export const FEATURES = [
     },
     {
         title: "1M+ 3D Models",
-        description: "Just ask and it'll be there.",
+        description: "Just ask for it",
         image: "/images/f5.png",
         size: "medium",
     },

@@ -8,7 +8,7 @@ export default function LandingLayout({
 }) {
     return (
         <main className="w-full relative">
-            {/* <Navbar /> */}
+            <Navbar />
             {children}
             <Footer />
         </main>
