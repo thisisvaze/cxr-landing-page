@@ -32,7 +32,7 @@ const Features = () => {
                     <AnimationContainer animation="fadeRight" delay={0.5}>
                         <MagicCard className="min-h-[350px]">
                             <div className="flex flex-col justify-between h-full">
-                                <div className="p-8">
+                                <div className="p-4 lg:p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.6}>
                                         <div className="space-y-0">
                                             <h3 className="text-lg md:text-xl font-medium">
@@ -58,7 +58,7 @@ const Features = () => {
                         </MagicCard>
                     </AnimationContainer>
 
-                    <AnimationContainer animation="fadeUp" delay={0.6}>
+                    <AnimationContainer className="hidden lg:block" animation="fadeUp" delay={0.6}>
                         <MagicCard>
                             <Image
                                 src="/images/f2.png"
@@ -71,10 +71,10 @@ const Features = () => {
                         </MagicCard>
                     </AnimationContainer>
 
-                    <AnimationContainer animation="fadeLeft" delay={0.7}>
+                    <AnimationContainer animation="fadeLeft" delay={0.7} className="hidden lg:block">
                         <MagicCard className="min-h-[350px]">
                             <div className="flex flex-col justify-between h-full">
-                                <div className="p-8">
+                                <div className="p-4 lg:p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.8}>
                                         <div className="space-y-0">
                                             <h3 className="text-lg md:text-xl font-medium">
@@ -87,7 +87,7 @@ const Features = () => {
                                     </AnimationContainer>
                                 </div>
                                 <AnimationContainer animation="fadeUp" delay={0.9}>
-                                    <div className="relative w-full h-48 overflow-hidden mt-auto">
+                                    <div className="relative w-full h-[150px] lg:h-[200px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[2].image}
                                             alt={FEATURES[2].title}
@@ -103,9 +103,9 @@ const Features = () => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
                     <AnimationContainer animation="fadeRight" delay={0.8} className="lg:col-span-3">
-                        <MagicCard className="min-h-[350px]">
+                        <MagicCard className="min-h-[250px] lg:min-h-[350px]">
                             <div className="flex flex-col justify-between h-full">
-                                <div className="p-8">
+                                <div className="p-4 lg:p-8">
                                     <AnimationContainer animation="fadeUp" delay={0.9}>
                                         <div className="space-y-2">
                                             <h3 className="text-lg md:text-xl font-medium">
@@ -118,7 +118,7 @@ const Features = () => {
                                     </AnimationContainer>
                                 </div>
                                 <AnimationContainer animation="fadeUp" delay={1}>
-                                    <div className="relative w-full h-[350px] overflow-hidden mt-auto">
+                                    <div className="relative w-full h-[200px] lg:h-[350px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[3].image}
                                             alt={FEATURES[3].title}
@@ -134,9 +134,9 @@ const Features = () => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeLeft" delay={0.9} className="lg:col-span-2">
-                        <MagicCard className="min-h-[350px]">
+                        <MagicCard className="min-h-[250px] lg:min-h-[350px]">
                             <div className="flex flex-col justify-between h-full">
-                                <div className="p-8">
+                                <div className="p-4 lg:p-8">
                                     <AnimationContainer animation="fadeUp" delay={1}>
                                         <div className="">
                                             <h3 className="text-lg md:text-xl font-medium">
@@ -149,7 +149,7 @@ const Features = () => {
                                     </AnimationContainer>
                                 </div>
                                 <AnimationContainer animation="fadeUp" delay={1.1}>
-                                    <div className="relative w-full h-[390px]">
+                                    <div className="relative w-full h-[250px] lg:h-[350px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[4].image}
                                             alt={FEATURES[4].title}

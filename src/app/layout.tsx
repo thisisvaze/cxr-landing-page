@@ -3,6 +3,7 @@ import { architectsDaughter, base, heading } from "@/constants/fonts";
 import { cn } from "@/lib";
 import "./globals.css";
 import { generateMetadata } from "@/utils";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = generateMetadata({
     title: `${process.env.NEXT_PUBLIC_APP_NAME} | Home`,
@@ -28,6 +29,7 @@ export default function RootLayout({
             >
                 <Toaster richColors theme="dark" position="bottom-center" />
                 {children}
+                <Analytics />
             </body>
         </html>
     );

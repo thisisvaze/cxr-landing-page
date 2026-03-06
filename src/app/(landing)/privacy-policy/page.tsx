@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: "CuriosityXR Privacy Policy - Learn how we collect, use, disclose, and protect your personal information",
 };
 
-export default function PrivacyPolicyPage() {
+export default function SupportPage() {
   return (
     <main className="pt-32 pb-24">
       <Wrapper>

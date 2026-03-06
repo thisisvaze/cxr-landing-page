@@ -28,25 +28,35 @@ const Hero = () => {
                     {/* <AnimationContainer animation="fadeUp" delay={0.2}>
                         <SectionBadge title="#1 AI Learning App on Meta Quest" />
                     </AnimationContainer> */}
-                    <AnimationContainer animation="fadeUp" delay={0.3}>
+                    {/* <AnimationContainer animation="fadeUp" delay={0.3}>
                         <Image 
                             src="/images/cxr-logo.png" 
                             alt="Logo" 
                             width={250} 
                             height={100}
-                            className="w-auto h-auto max-w-[80%] sm:max-w-[250px]" 
+                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
                             priority
                         />
-                    </AnimationContainer>
+                    </AnimationContainer> */}
+                    <AnimationContainer animation="fadeUp" delay={1.4} className="flex justify-center w-full">
+                    <Image 
+                        src="/images/tags.png" 
+                        alt="Feature tags" 
+                        width={800} 
+                        height={380}
+                        quality={100}
+                        className="w-auto h-auto mb-2 md:mb-8 max-w-[300px] md:max-w-[400px]" 
+                    />
+                </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h1 className="text-4xl font-heading lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-neutral-100">
-                            Learn in 3D with AI
+                        <h1 className="text-5xl font-heading lg:text-6xl font-medium !leading-tighter text-transparent bg-clip-text bg-neutral-100">
+                            Learn with AI & <br />
+                            1M+ 3D models
                         </h1>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.6}>
                         <p className="text-lg text-muted-foreground">
-                            Experience the future. Today. <br />
-                            with the power of AI and Mixed Reality
+                            The power of AI and Mixed Reality is here.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>
@@ -103,16 +113,7 @@ const Hero = () => {
                         </Link>
                     </div>
                 </AnimationContainer>
-                <AnimationContainer animation="fadeUp" delay={1.4} className="mt-8 flex justify-center w-full">
-                    <Image 
-                        src="/images/tags.png" 
-                        alt="Feature tags" 
-                        width={1008} 
-                        height={380}
-                        quality={100}
-                        className="w-auto h-auto max-w-full sm:max-w-[450px]" 
-                    />
-                </AnimationContainer>
+                
                 <AnimationContainer animation="fadeUp" delay={1}>
                         <div className="flex flex-col items-center gap-4 pt-12">
                             <p className="text-sm md:text-base text-muted-foreground">

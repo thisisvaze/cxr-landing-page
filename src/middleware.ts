@@ -6,7 +6,9 @@ export function middleware(request: NextRequest) {
     if (request.nextUrl.pathname === '/pitchdeck') {
         return NextResponse.redirect('https://www.figma.com/proto/1WfGljydFSLWndKz1UgS8m/CXR-LIVE!!!?page-id=0%3A1&node-id=0-11&p=f&viewport=556%2C25%2C0.06&t=uVu14rIvkPUDeEkO-1&scaling=contain&content-scaling=fixed');
     }
-    
+    if (request.nextUrl.pathname === '/support') {
+        return NextResponse.redirect('https://discord.gg/aF2cRG6k62');
+    }
     return NextResponse.next();
 }
 

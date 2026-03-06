@@ -30,7 +30,7 @@ const CTA = () => {
                 className="absolute inset-0 w-full h-full"
             />
             
-            <Wrapper className="py-20 lg:py-32">
+            <Wrapper className="py-12 lg:pt-24 lg:pb-0">
                 <div className="flex -mt-32 flex-col items-center text-center relative gap-4 py-20 lg:py-32 overflow-hidden z-0">
                     <div className="absolute inset-x-0 bottom-0 w-full h-1/2 z-10"></div>
 
@@ -110,14 +110,14 @@ const CTA = () => {
                         </AnimationContainer>
 
                         <AnimationContainer animation="fadeUp" delay={1}>
-                            <div className="flex items-center flex-col gap-2">
+                            <div className="flex items-center mt-12 flex-col gap-2">
                       
                                 <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
                                     <Button className="magic-button mt-6">
                                         <span className="relative z-10">Get on Meta Quest</span>
                                     </Button>
                                 </Link>
-                            <p className="text-sm text-muted-foreground font-medium">Join 1000+ curious minds</p>
+                            <p className="text-sm text-muted-foreground font-medium">Join 2000+ curious minds</p>
                             </div>
                         </AnimationContainer>
 

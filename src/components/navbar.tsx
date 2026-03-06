@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants";
 import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
+import Image from "next/image";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
@@ -55,7 +56,18 @@ const Navbar = () => {
                         transition={{ duration: 0.2 }}
                     >
                         <Link href="/" className="flex items-center gap-2">
-                            <Icons.logo className="w-max h-6 -mt-1" />
+                            <Icons.logo className="w-max h-5 !my-2" />
+                            <span className="text-base font-medium ml-2">CuriosityXR</span>
+                        {/* <Image 
+                            src="/images/cxr-logo.png" 
+                            alt="Logo" 
+                            width={150} 
+                            height={100}
+                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
+                            priority
+                        />   */}
+
+
                         </Link>
                     </motion.div>
 
@@ -111,8 +123,9 @@ const Navbar = () => {
                 <Wrapper className="flex items-center justify-between lg:px-4">
                     <div className="flex items-center justify-between gap-x-4 w-full">
                         <AnimationContainer animation="fadeRight" delay={0.1}>
-                            <Link href="/">
-                                <Icons.icon className="w-max h-6" />
+                            <Link href="/" className="flex items-center gap-2">
+                            {/* <Icons.logo className="w-max h-6" /> */}
+                            <span className="text-base font-medium ml-2">CuriosityXR</span>
                             </Link>
                         </AnimationContainer>
 
@@ -165,7 +178,7 @@ const Navbar = () => {
                                     </Link>
                                 </AnimationContainer>
                             ))}
-                            <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
+                            {/* <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
                                 
                                     <>
                                         <Link href="/signin" className="w-full">
@@ -187,7 +200,7 @@ const Navbar = () => {
                                             </Button>
                                     </Link>
                                 </>
-                            </AnimationContainer>
+                            </AnimationContainer> */}
                         </motion.div>
                     )}
                 </AnimatePresence>
