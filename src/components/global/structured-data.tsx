@@ -4,6 +4,7 @@ import {
     APP_PRICE_USD,
     DEFAULT_DESCRIPTION,
     PROFILES,
+    RESEARCH_PAPER,
     SITE_URL,
     YOUTUBE_VIDEO_ID,
 } from "@/utils";
@@ -111,6 +112,31 @@ const graph = {
                 embedUrl: `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`,
                 url: PROFILES.youtubeTrailer,
             },
+            subjectOf: { "@id": `${SITE_URL}/#paper` },
+        },
+        {
+            "@type": "ScholarlyArticle",
+            "@id": `${SITE_URL}/#paper`,
+            name: RESEARCH_PAPER.name,
+            headline: RESEARCH_PAPER.name,
+            author: RESEARCH_PAPER.authors.map((name) => ({
+                "@type": "Person",
+                name,
+            })),
+            isPartOf: {
+                "@type": "PublicationEvent",
+                name: RESEARCH_PAPER.venue,
+            },
+            publisher: {
+                "@type": "Organization",
+                name: "IEEE",
+            },
+            datePublished: RESEARCH_PAPER.datePublished,
+            pagination: RESEARCH_PAPER.pagination,
+            identifier: `https://doi.org/${RESEARCH_PAPER.doi}`,
+            sameAs: PROFILES.researchPaper,
+            url: PROFILES.researchPaper,
+            about: { "@id": `${SITE_URL}/#app` },
         },
         {
             "@type": "FAQPage",

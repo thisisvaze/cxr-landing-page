@@ -16,6 +16,7 @@ const PRODUCT_LINKS = [
 const COMPANY_LINKS = [
     { label: "Privacy Policy", href: "/privacy-policy", external: false },
     { label: "CuriosityXR on Product Hunt", href: PROFILES.productHunt, external: true },
+    { label: "Research paper (IEEE AIxVR 2024)", href: PROFILES.researchPaper, external: true },
 ];
 
 const SOCIAL_LINKS = [

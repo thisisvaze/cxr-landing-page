@@ -50,6 +50,11 @@ export const FAQS: FAQItem[] = [
             "Both. CuriosityXR is a mixed reality app. On Meta Quest 3 and Quest 3S it uses passthrough so 3D models appear in your real room, which is the AR experience. It also works as a fully immersive VR experience on Meta Quest 2 and Quest Pro.",
     },
     {
+        question: "Is CuriosityXR based on published research?",
+        answer:
+            "Yes. CuriosityXR began as peer-reviewed research. The paper \"CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI\" by Aaditya Vaze, Alexis Morris and Ian Clarke was published by IEEE at the 2024 International Conference on Artificial Intelligence and eXtended and Virtual Reality (AIxVR). It sets out the context-aware, multi-modal approach the app is built on.",
+    },
+    {
         question: "How much does CuriosityXR cost and where can I get it?",
         answer:
             "CuriosityXR is a one-time purchase on the Meta Horizon Store, with no subscription. Search for CuriosityXR on your Meta Quest headset, or open the store listing from curiosityxr.com to install it directly.",

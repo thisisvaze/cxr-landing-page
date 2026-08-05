@@ -27,6 +27,21 @@ export const PROFILES = {
     x: "https://x.com/curiosityxr",
     discord: "https://discord.gg/aF2cRG6k62",
     youtubeTrailer: `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`,
+    researchPaper: "https://ieeexplore.ieee.org/document/10445534/",
+} as const;
+
+/**
+ * Peer-reviewed publication about the product itself. Verified against Crossref
+ * (DOI 10.1109/aixvr59861.2024.00013). It currently outranks curiosityxr.com for
+ * the brand query, so it is worth claiming as an entity we are connected to.
+ */
+export const RESEARCH_PAPER = {
+    name: "CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI",
+    authors: ["Aaditya Vaze", "Alexis Morris", "Ian Clarke"],
+    venue: "2024 IEEE International Conference on Artificial Intelligence and eXtended and Virtual Reality (AIxVR)",
+    doi: "10.1109/aixvr59861.2024.00013",
+    datePublished: "2024-01-17",
+    pagination: "41-49",
 } as const;
 
 /** Keep in sync with the Meta Horizon Store listing. */
