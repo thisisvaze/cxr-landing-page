@@ -56,8 +56,9 @@ const CTA = () => {
 
                         <AnimationContainer animation="fadeUp" delay={0.6}>
                             <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-lg mx-auto mt-4">
-                            The first AI Teacher that
-                            assists in 3D
+                                The first AI teacher that assists in 3D. ChatGPT answers
+                                in text; CuriosityXR answers in your room &mdash; ask about
+                                the heart and walk around a life-size beating one.
                             </p>
                         </AnimationContainer>
 
@@ -71,7 +72,7 @@ const CTA = () => {
                             >
                                 <Image
                                     src="/images/mission_header.png"
-                                    alt="CXR Learning Experience"
+                                    alt="A student wearing a mixed reality headset learning plant cell biology from a 3D model with the CuriosityXR AI teacher"
                                     width={1200}
                                     height={1200}
                                     className="w-full h-full object-cover rounded-xl"
@@ -112,7 +113,7 @@ const CTA = () => {
                         <AnimationContainer animation="fadeUp" delay={1}>
                             <div className="flex items-center mt-12 flex-col gap-2">
                       
-                                <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
+                                <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
                                     <Button className="magic-button mt-6">
                                         <span className="relative z-10">Get on Meta Quest</span>
                                     </Button>

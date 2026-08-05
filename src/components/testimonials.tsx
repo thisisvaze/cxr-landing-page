@@ -24,7 +24,8 @@ const Testimonials = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        See what our users have to say about their experience with our platform
+                        More than 2,000 homeschooling families, teachers and curious
+                        learners use CuriosityXR on Meta Quest. Here is what they say.
                     </p>
                 </AnimationContainer>
             </div>
@@ -56,9 +57,9 @@ const Testimonials = () => {
                                                     />
                                                 </div>
                                                 <div>
-                                                    <h4 className="font-medium">
+                                                    <p className="font-medium">
                                                         {testimonial.author}
-                                                    </h4>
+                                                    </p>
                                                     <p className="text-sm text-muted-foreground">
                                                         {testimonial.role}
                                                     </p>

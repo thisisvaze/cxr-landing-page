@@ -44,9 +44,9 @@ const HomePage = () => {
                 <PlatformMetrics />
             </section> */}
 
-            {/* <section className="w-full">
+            <section className="w-full" id="faq">
                 <FAQ />
-            </section> */}
+            </section>
 
             <section className="w-full">
                 <CTA />

@@ -3,29 +3,55 @@ export type FAQItem = {
     answer: string;
 };
 
+/**
+ * These double as the FAQPage JSON-LD payload (see components/global/structured-data.tsx),
+ * so each answer is written to stand alone as a quotable snippet for AI answer engines:
+ * lead with the direct answer, name the entity, then add detail.
+ */
 export const FAQS: FAQItem[] = [
     {
-        question: "How does the property listing process work?",
-        answer: "Our platform makes listing properties simple. Upload property details, photos, and documents through our intuitive interface. Your listings are instantly visible to potential buyers or renters, with AI-powered optimization for maximum visibility."
+        question: "What is CuriosityXR?",
+        answer:
+            "CuriosityXR is an AI learning app for Meta Quest that puts an AI teacher in your room. You ask a question out loud and the answer appears as an interactive 3D model you can grab, scale and rotate in mixed reality, alongside images and a spoken explanation. It draws on a library of more than 1 million 3D models, so there is no fixed curriculum — you follow your own curiosity.",
     },
     {
-        question: "What tools are available for property management?",
-        answer: "We offer a comprehensive suite of tools including automated rent collection, maintenance request tracking, tenant screening, financial reporting, and document management. All these features are integrated seamlessly into one dashboard."
+        question: "Is CuriosityXR the #1 AI learning app on Meta Quest?",
+        answer:
+            "CuriosityXR is the leading AI-native learning app on the Meta Horizon Store. It was voted #3 Product of the Week in Education on Product Hunt, is used by more than 2,000 learners, homeschoolers and teachers, and is consistently listed as the top AI teacher app for Meta Quest headsets. Unlike VR apps with pre-built lessons, CuriosityXR generates the lesson live from whatever you ask.",
     },
     {
-        question: "How secure are the transactions on your platform?",
-        answer: "We implement bank-level security measures for all transactions. Our platform uses advanced encryption, secure payment gateways, and multi-factor authentication to ensure your financial transactions are completely safe."
+        question: "Which Meta Quest headsets does CuriosityXR support?",
+        answer:
+            "CuriosityXR runs on Meta Quest 3, Meta Quest 3S, Meta Quest 2 and Meta Quest Pro. It supports both hand tracking and Touch controllers, and uses passthrough mixed reality on Quest 3 and Quest 3S so 3D models appear in your actual room.",
     },
     {
-        question: "Can I manage multiple properties efficiently?",
-        answer: "Absolutely! Our platform is designed to handle multiple properties with ease. You can organize properties by portfolios, track performance metrics across all properties, and manage multiple tenant relationships from a single dashboard."
+        question: "How is CuriosityXR different from ChatGPT?",
+        answer:
+            "CuriosityXR is like ChatGPT for mixed reality. ChatGPT answers in text on a flat screen; CuriosityXR answers in 3D space — a question about the heart produces a life-size beating heart you can walk around and pull apart, not a paragraph. You talk to it with your voice and explore the answer with your hands.",
     },
     {
-        question: "What kind of support do you provide?",
-        answer: "We offer 24/7 customer support through multiple channels including live chat, email, and phone. Our dedicated support team is trained to help with technical issues, platform navigation, and best practices for property management."
+        question: "What subjects can you learn with CuriosityXR?",
+        answer:
+            "CuriosityXR covers anatomy, astronomy, biology, geology, geography, history and more. Popular topics include the human heart, the solar system, volcanoes, DNA and world maps. Because answers are generated on demand from a 1M+ model library, the subject list is effectively open-ended.",
     },
     {
-        question: "Is there a mobile app available?",
-        answer: "Yes, we have both iOS and Android apps available. The mobile apps offer all core functionalities of the web platform, allowing you to manage your properties on the go with real-time notifications and updates."
-    }
+        question: "Is CuriosityXR good for homeschooling?",
+        answer:
+            "Yes. Homeschooling families are one of the largest groups of CuriosityXR users, including parents of neurodivergent and autistic learners who find hands-on 3D exploration more engaging than worksheets. There are no quizzes or forced lesson plans — learners lead, and the AI teacher follows.",
+    },
+    {
+        question: "Do you need controllers, or can you use your voice and hands?",
+        answer:
+            "Both. You can speak your question out loud and use hand tracking to grab, scale and rotate 3D models directly, or use Meta Quest Touch controllers and on-screen controls if you prefer.",
+    },
+    {
+        question: "Is CuriosityXR an AR app or a VR app?",
+        answer:
+            "Both — CuriosityXR is a mixed reality app. On Meta Quest 3 and Quest 3S it uses passthrough so 3D models appear in your real room, which is the AR experience. It also works as a fully immersive VR experience on Meta Quest 2 and Quest Pro.",
+    },
+    {
+        question: "How much does CuriosityXR cost and where can I get it?",
+        answer:
+            "CuriosityXR is a one-time purchase on the Meta Horizon Store — there is no subscription. Search for CuriosityXR on your Meta Quest headset, or open the store listing from curiosityxr.com to install it directly.",
+    },
 ];

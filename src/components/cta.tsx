@@ -60,7 +60,7 @@ const CTA = () => {
                     <AnimationContainer animation="fadeUp" delay={1.2} className="w-full max-w-[200px] my-16">
                             <Image
                                 src="/images/cxr_sticker.png"
-                                alt="CXR Learning Experience"
+                                alt="CuriosityXR — the #1 AI learning app on Meta Quest"
                                 width={1200}
                                 height={1200}
                                 className="w-full h-full object-cover rounded-xl"

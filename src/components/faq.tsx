@@ -14,13 +14,14 @@ const FAQ = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        Still have questions?
+                        CuriosityXR, answered
                     </h2>
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        Find answers to common questions about our PropEase
+                        What CuriosityXR is, which Meta Quest headsets it runs on, and
+                        how it differs from ChatGPT.
                     </p>
                 </AnimationContainer>
             </div>
@@ -40,7 +41,18 @@ const FAQ = () => {
                                 <AccordionTrigger className="hover:no-underline py-6 text-base md:text-lg text-left font-normal">
                                     {item.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground text-left">
+                                {/*
+                                  * forceMount keeps every answer in the DOM even while
+                                  * collapsed. Radix unmounts closed panels by default,
+                                  * which hid the answers from crawlers that don't run JS
+                                  * and left the FAQPage JSON-LD without matching on-page
+                                  * text. Radix still sets `hidden` when closed, so the
+                                  * collapsed visual is unchanged.
+                                  */}
+                                <AccordionContent
+                                    forceMount
+                                    className="text-muted-foreground text-left"
+                                >
                                     {item.answer}
                                 </AccordionContent>
                             </AccordionItem>

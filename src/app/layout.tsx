@@ -1,13 +1,18 @@
 import { Toaster } from "@/components/ui/sonner";
+import StructuredData from "@/components/global/structured-data";
 import { architectsDaughter, base, heading } from "@/constants/fonts";
 import { cn } from "@/lib";
 import "./globals.css";
-import { generateMetadata } from "@/utils";
+import { APP_NAME, DEFAULT_TITLE, generateMetadata } from "@/utils";
 import { Analytics } from "@vercel/analytics/react";
 
-export const metadata = generateMetadata({
-    title: `${process.env.NEXT_PUBLIC_APP_NAME} | Home`,
-});
+export const metadata = {
+    ...generateMetadata(),
+    title: {
+        default: DEFAULT_TITLE,
+        template: `%s | ${APP_NAME}`,
+    },
+};
 
 export default function RootLayout({
     children,
@@ -18,6 +23,7 @@ export default function RootLayout({
         <html lang="en" suppressHydrationWarning>
             <head>
                 <link rel="icon" href="/icons/favicon-32x32.png" />
+                <StructuredData />
             </head>
             <body
                 className={cn(

@@ -25,9 +25,9 @@ const Hero = () => {
         <Wrapper className="pt-32 lg:pt-40 relative min-h-screen w-full flex-1">
             <div className="flex flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-6 max-w-3xl">
-                    {/* <AnimationContainer animation="fadeUp" delay={0.2}>
+                    <AnimationContainer animation="fadeUp" delay={0.2}>
                         <SectionBadge title="#1 AI Learning App on Meta Quest" />
-                    </AnimationContainer> */}
+                    </AnimationContainer>
                     {/* <AnimationContainer animation="fadeUp" delay={0.3}>
                         <Image 
                             src="/images/cxr-logo.png" 
@@ -39,10 +39,10 @@ const Hero = () => {
                         />
                     </AnimationContainer> */}
                     <AnimationContainer animation="fadeUp" delay={1.4} className="flex justify-center w-full">
-                    <Image 
-                        src="/images/tags.png" 
-                        alt="Feature tags" 
-                        width={800} 
+                    <Image
+                        src="/images/tags.png"
+                        alt="CuriosityXR feature tags: AI teacher, mixed reality, 1M+ 3D models"
+                        width={800}
                         height={380}
                         quality={100}
                         className="w-auto h-auto mb-2 md:mb-8 max-w-[300px] md:max-w-[400px]" 
@@ -55,16 +55,18 @@ const Hero = () => {
                         </h1>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <p className="text-lg text-muted-foreground">
-                            The power of AI and Mixed Reality is here.
+                        <p className="text-lg text-muted-foreground max-w-xl">
+                            CuriosityXR is the AI learning app for Meta Quest. Ask
+                            anything out loud and your AI teacher answers in mixed
+                            reality &mdash; as a 3D model you can hold.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>
                         <div className="flex gap-4">
-                            <Link href={trailerUrl} target="_blank">
+                            <Link href={trailerUrl} target="_blank" rel="noopener noreferrer">
                                 <Button variant="outline">Watch Trailer</Button>
                             </Link>
-                            <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
+                            <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
                                 <Button className="magic-button">
                                     <span className="relative z-10">Get on Meta Quest</span>
                                 </Button>
@@ -81,6 +83,8 @@ const Hero = () => {
                     >
                         <video
                             src="/images/v.webm"
+                            aria-label="CuriosityXR on Meta Quest: a spoken question turns into an interactive 3D model in mixed reality"
+                            poster="/images/mission_header.png"
                             autoPlay
                             loop
                             muted

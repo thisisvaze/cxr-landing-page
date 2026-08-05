@@ -1,11 +1,17 @@
 import Wrapper from "@/components/global/wrapper";
 import AnimationContainer from "@/components/global/animation-container";
-import { Metadata } from "next";
+import { generateMetadata as buildMetadata } from "@/utils";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | CuriosityXR",
-  description: "CuriosityXR Privacy Policy - Learn how we collect, use, disclose, and protect your personal information",
-};
+// noIndex: the page earned 100 impressions and 0 clicks over 6 months and has no
+// search value, but stays crawlable and reachable — the Meta Horizon Store listing
+// requires a publicly accessible privacy policy URL.
+export const metadata = buildMetadata({
+  title: "Privacy Policy",
+  description:
+    "CuriosityXR Privacy Policy — how we collect, use, disclose, and protect your personal information.",
+  path: "/privacy-policy",
+  noIndex: true,
+});
 
 export default function SupportPage() {
   return (

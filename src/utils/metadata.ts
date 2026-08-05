@@ -1,52 +1,167 @@
 import { Metadata } from "next";
 
+/**
+ * Single source of truth for everything search engines and answer engines read.
+ * Update here, not in individual pages.
+ */
+
+/**
+ * Must be the host that actually serves 200. The apex 308-redirects to www, and
+ * Search Console shows Google indexing the www version (882 impressions vs 10),
+ * so www is the canonical origin. Pointing canonicals/sitemap at the apex would
+ * emit URLs that redirect and split the entity across two hosts.
+ */
+export const SITE_URL = (
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.curiosityxr.com"
+).replace(/\/$/, "");
+
+export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "CuriosityXR";
+
+/** Canonical off-site profiles — used for `sameAs` in JSON-LD and OG links. */
+export const PROFILES = {
+    metaStore: "https://www.meta.com/experiences/curiosityxr-interactive-ai-learning/8662430537161741/",
+    productHunt: "https://www.producthunt.com/products/curiosityxr",
+    linkedin: "https://www.linkedin.com/company/curiosityxr",
+    x: "https://x.com/curiosityxr",
+    discord: "https://discord.gg/aF2cRG6k62",
+    youtubeTrailer: "https://www.youtube.com/watch?v=um-3guz9FO0",
+} as const;
+
+/** Keep in sync with the Meta Horizon Store listing. */
+export const APP_PRICE_USD = "19.99";
+
+export const DEFAULT_TITLE = `${APP_NAME} | #1 AI Learning App on Meta Quest`;
+
+export const DEFAULT_DESCRIPTION =
+    `${APP_NAME} is the #1 AI learning app on Meta Quest. Ask anything out loud and your AI teacher ` +
+    `answers with 1M+ interactive 3D models in mixed reality. Quest 3, 3S, Quest 2 & Quest Pro.`;
+
+/**
+ * Not a ranking factor for Google, but Bing and several AI answer-engine crawlers
+ * still parse it, and it keeps the target entity set documented in one place.
+ */
+export const DEFAULT_KEYWORDS = [
+    "AI learning app",
+    "AI education app",
+    "AI learning app for Meta Quest",
+    "Meta Quest education app",
+    "AI tutor VR",
+    "AI teacher VR",
+    "VR AI tutor app",
+    "AI VR education",
+    "AI AR education",
+    "mixed reality learning app",
+    "immersive learning app",
+    "spatial learning",
+    "learn in 3D",
+    "3D models learning app",
+    "Quest 3 education apps",
+    "VR homeschool app",
+    "AI tutor for kids",
+    "ChatGPT for VR",
+    "educational VR app",
+    "AR education app",
+];
+
+const DEFAULT_OG_IMAGE = {
+    url: "/opengraph-image",
+    width: 1200,
+    height: 630,
+    alt: `${APP_NAME} — the #1 AI learning app on Meta Quest`,
+};
+
 export const generateMetadata = ({
-    title = `${process.env.NEXT_PUBLIC_APP_NAME} | Home`,
-    description = `Learn in 3D with AI - Experience the future of education with CuriosityXR.`,
-    image = "/thumbnail.png",
+    title = DEFAULT_TITLE,
+    description = DEFAULT_DESCRIPTION,
+    keywords = DEFAULT_KEYWORDS,
+    image,
+    path = "/",
     icons = [
         {
             rel: "icon",
             type: "image/png",
             sizes: "16x16",
-            url: "/icons/favicon-16x16.png"
+            url: "/icons/favicon-16x16.png",
         },
         {
             rel: "icon",
             type: "image/png",
             sizes: "32x32",
-            url: "/icons/favicon-32x32.png"
+            url: "/icons/favicon-32x32.png",
         },
         {
             rel: "apple-touch-icon",
             sizes: "180x180",
-            url: "/icons/apple-touch-icon.png"
+            url: "/icons/apple-touch-icon.png",
         },
         {
             rel: "android-chrome",
             sizes: "192x192",
-            url: "/icons/android-chrome-192x192.png"
+            url: "/icons/android-chrome-192x192.png",
         },
         {
             rel: "android-chrome",
             sizes: "512x512",
-            url: "/icons/android-chrome-512x512.png"
-        }
+            url: "/icons/android-chrome-512x512.png",
+        },
     ],
-    noIndex = false
+    noIndex = false,
 }: {
     title?: string;
     description?: string;
+    keywords?: string[];
     image?: string | null;
+    path?: string;
     icons?: Metadata["icons"];
     noIndex?: boolean;
 } = {}): Metadata => {
-    console.log('APP_NAME:', process.env.NEXT_PUBLIC_APP_NAME); // Debug log
+    const images = image
+        ? [{ ...DEFAULT_OG_IMAGE, url: image }]
+        : [DEFAULT_OG_IMAGE];
+
     return {
+        metadataBase: new URL(SITE_URL),
         title,
         description,
+        keywords,
+        applicationName: APP_NAME,
+        category: "education",
         icons,
         manifest: "/icons/site.webmanifest",
-        ...(noIndex && { robots: { index: false, follow: false } }),
+        alternates: {
+            canonical: path,
+        },
+        openGraph: {
+            type: "website",
+            siteName: APP_NAME,
+            title,
+            description,
+            url: path,
+            locale: "en_US",
+            images,
+        },
+        twitter: {
+            card: "summary_large_image",
+            site: "@curiosityxr",
+            creator: "@curiosityxr",
+            title,
+            description,
+            images,
+        },
+        robots: noIndex
+            // follow stays true so links on the page still pass equity and remain
+            // discoverable; only the page itself is kept out of the index.
+            ? { index: false, follow: true }
+            : {
+                  index: true,
+                  follow: true,
+                  googleBot: {
+                      index: true,
+                      follow: true,
+                      "max-video-preview": -1,
+                      "max-image-preview": "large",
+                      "max-snippet": -1,
+                  },
+              },
     };
 };

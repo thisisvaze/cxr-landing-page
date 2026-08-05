@@ -44,12 +44,21 @@ const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
+  // Collapses via grid-template-rows rather than the keyframe height animation, so
+  // panels can be `forceMount`ed — keeping FAQ answers in the DOM for crawlers that
+  // don't run JS — without the server HTML rendering every panel expanded, and
+  // without the close keyframe firing on all of them at first paint.
+  // The explicit `grid` display also overrides the `hidden` attribute Radix sets on
+  // collapsed force-mounted panels (author styles beat the UA sheet), which is what
+  // lets the collapse stay animated in both directions.
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="grid text-sm transition-[grid-template-rows] duration-200 ease-out data-[state=closed]:grid-rows-[0fr] data-[state=open]:grid-rows-[1fr]"
     {...props}
   >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    <div className="overflow-hidden">
+      <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    </div>
   </AccordionPrimitive.Content>
 ))
 

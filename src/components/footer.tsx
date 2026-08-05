@@ -5,13 +5,22 @@ import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper"
 import { LucideProps } from 'lucide-react';
 import Images from "./global/images";
+import { PROFILES } from "@/utils";
+const PRODUCT_LINKS = [
+    { label: "Get CuriosityXR on Meta Quest", href: PROFILES.metaStore, external: true },
+    { label: "Watch the trailer", href: PROFILES.youtubeTrailer, external: true },
+    { label: "FAQ", href: "/#faq", external: false },
+    { label: "Join the Discord", href: PROFILES.discord, external: true },
+];
+
 const COMPANY_LINKS = [
-    { label: "Privacy Policy", href: "/privacy-policy" }
+    { label: "Privacy Policy", href: "/privacy-policy", external: false },
+    { label: "CuriosityXR on Product Hunt", href: PROFILES.productHunt, external: true },
 ];
 
 const SOCIAL_LINKS = [
-    { icon: Linkedin, href: "https://www.linkedin.com/company/curiosityxr" },
-    { icon: Twitter, href: "https://x.com/curiosityxr" },
+    { icon: Linkedin, href: PROFILES.linkedin, label: "CuriosityXR on LinkedIn" },
+    { icon: Twitter, href: PROFILES.x, label: "CuriosityXR on X" },
 ];
 
 const Footer = () => {
@@ -38,7 +47,10 @@ const Footer = () => {
                                 />
                             </div>
                             <p className="text-muted-foreground mt-4 text-sm">
-                                CuriosityXR
+                                CuriosityXR is the #1 AI learning app on Meta Quest &mdash;
+                                an AI teacher that answers your questions with interactive
+                                3D models in mixed reality.
+                                <br />
                                 <br />
                                 Toronto, Canada
                             </p>
@@ -53,6 +65,9 @@ const Footer = () => {
                                     >
                                         <Link
                                             href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={social.label}
                                             className="text-muted-foreground hover:text-primary transition-colors"
                                         >
                                             <social.icon className="size-5" />
@@ -64,7 +79,32 @@ const Footer = () => {
                 </AnimationContainer>
 
                     <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-
+                        <AnimationContainer animation="fadeIn">
+                            <div>
+                                <h3 className="text-base font-medium">Product</h3>
+                                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                                    {PRODUCT_LINKS.map((link, index) => (
+                                        <AnimationContainer
+                                            key={index}
+                                            animation="fadeIn"
+                                        >
+                                            <li>
+                                                <Link
+                                                    href={link.href}
+                                                    {...(link.external && {
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                    })}
+                                                    className="hover:text-foreground transition-colors"
+                                                >
+                                                    {link.label}
+                                                </Link>
+                                            </li>
+                                        </AnimationContainer>
+                                    ))}
+                                </ul>
+                            </div>
+                        </AnimationContainer>
 
                         <AnimationContainer animation="fadeIn">
                             <div>
@@ -78,6 +118,10 @@ const Footer = () => {
                                             <li>
                                                 <Link
                                                     href={link.href}
+                                                    {...(link.external && {
+                                                        target: "_blank",
+                                                        rel: "noopener noreferrer",
+                                                    })}
                                                     className="hover:text-foreground transition-colors"
                                                 >
                                                     {link.label}

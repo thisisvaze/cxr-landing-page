@@ -22,7 +22,11 @@ const Features = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                    The first AI Teacher that assists in 3D
+                        CuriosityXR is an AI learning app for Meta Quest 3, Quest 3S,
+                        Quest 2 and Quest Pro. It is the first AI teacher that assists
+                        in 3D: speak a question and the answer appears in your room as
+                        an interactive model you can scale, rotate and pull apart &mdash;
+                        anatomy, astronomy, biology, geology, geography and beyond.
                     </p>
                 </AnimationContainer>
             </div>
@@ -48,7 +52,7 @@ const Features = () => {
                                     <div className="relative w-full h-[250px] overflow-hidden">
                                         <Image
                                             src={FEATURES[0].image}
-                                            alt={FEATURES[0].title}
+                                            alt={FEATURES[0].alt}
                                             fill
                                             className="object-cover w-full"
                                         />
@@ -62,7 +66,7 @@ const Features = () => {
                         <MagicCard>
                             <Image
                                 src="/images/f2.png"
-                                alt="Feature 2"
+                                alt="A learner exploring an interactive 3D model with the CuriosityXR AI teacher on Meta Quest"
                                 width={500}
                                 height={350}
                                 className="w-full h-[350px] object-cover"
@@ -90,7 +94,7 @@ const Features = () => {
                                     <div className="relative w-full h-[150px] lg:h-[200px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[2].image}
-                                            alt={FEATURES[2].title}
+                                            alt={FEATURES[2].alt}
                                             fill
                                             className="object-cover w-full object-bottom"
                                         />
@@ -121,7 +125,7 @@ const Features = () => {
                                     <div className="relative w-full h-[200px] lg:h-[350px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[3].image}
-                                            alt={FEATURES[3].title}
+                                            alt={FEATURES[3].alt}
                                             fill
                                             className="object-cover w-full object-bottom"
                                             sizes="(max-width: 768px) 100vw, 60vw"
@@ -152,7 +156,7 @@ const Features = () => {
                                     <div className="relative w-full h-[250px] lg:h-[350px] overflow-hidden mt-auto">
                                         <Image
                                             src={FEATURES[4].image}
-                                            alt={FEATURES[4].title}
+                                            alt={FEATURES[4].alt}
                                             fill
                                             className="object-cover w-full object-bottom"
                                             sizes="(max-width: 768px) 100vw, 40vw"
