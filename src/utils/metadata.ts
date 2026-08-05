@@ -69,7 +69,7 @@ const DEFAULT_OG_IMAGE = {
     url: "/opengraph-image",
     width: 1200,
     height: 630,
-    alt: `${APP_NAME} — the #1 AI learning app on Meta Quest`,
+    alt: `${APP_NAME}, the #1 AI learning app on Meta Quest`,
 };
 
 export const generateMetadata = ({

@@ -8,7 +8,7 @@ import { generateMetadata as buildMetadata } from "@/utils";
 export const metadata = buildMetadata({
   title: "Privacy Policy",
   description:
-    "CuriosityXR Privacy Policy — how we collect, use, disclose, and protect your personal information.",
+    "How CuriosityXR collects, uses, discloses, and protects your personal information.",
   path: "/privacy-policy",
   noIndex: true,
 });

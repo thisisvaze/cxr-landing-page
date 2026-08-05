@@ -23,9 +23,9 @@ const Features = () => {
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
                         CuriosityXR is an AI learning app for Meta Quest 3, Quest 3S,
-                        Quest 2 and Quest Pro. It is the first AI teacher that assists
-                        in 3D: speak a question and the answer appears in your room as
-                        an interactive model you can scale, rotate and pull apart &mdash;
+                        Quest 2 and Quest Pro. It&apos;s the first AI teacher that assists
+                        in 3D. Speak a question and the answer appears in your room as
+                        an interactive model you can scale, rotate and pull apart, across
                         anatomy, astronomy, biology, geology, geography and beyond.
                     </p>
                 </AnimationContainer>

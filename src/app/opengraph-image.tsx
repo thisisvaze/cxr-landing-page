@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { APP_NAME } from "@/utils";
 
-export const alt = `${APP_NAME} — the #1 AI learning app on Meta Quest`;
+export const alt = `${APP_NAME}, the #1 AI learning app on Meta Quest`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

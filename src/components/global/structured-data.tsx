@@ -64,7 +64,7 @@ const graph = {
             applicationCategory: "EducationalApplication",
             applicationSubCategory: "AI Tutor / Mixed Reality Learning",
             operatingSystem:
-                "Meta Horizon OS — Meta Quest 3, Meta Quest 3S, Meta Quest 2, Meta Quest Pro",
+                "Meta Horizon OS (Meta Quest 3, Meta Quest 3S, Meta Quest 2, Meta Quest Pro)",
             installUrl: PROFILES.metaStore,
             downloadUrl: PROFILES.metaStore,
             softwareHelp: PROFILES.discord,
@@ -82,7 +82,7 @@ const graph = {
             featureList: [
                 "AI teacher you talk to out loud",
                 "1M+ interactive 3D models",
-                "Mixed reality passthrough — models appear in your room",
+                "Mixed reality passthrough so models appear in your room",
                 "Hand tracking and Touch controller support",
                 "Open-ended topics: anatomy, astronomy, biology, geology, geography",
                 "Self-directed learning with no fixed curriculum",
@@ -103,7 +103,7 @@ const graph = {
             // eligible for rich results if it matches the real video.
             video: {
                 "@type": "VideoObject",
-                name: `${APP_NAME} — Launch Trailer — Meta Quest 3 & 3S`,
+                name: `${APP_NAME} - Launch Trailer - Meta Quest 3 & 3S - Available on Meta Horizon Store`,
                 description: `Watch how ${APP_NAME} turns spoken questions into interactive 3D models on Meta Quest.`,
                 thumbnailUrl: `${SITE_URL}/images/mission_header.png`,
                 uploadDate: "2024-10-22T14:24:12-07:00",

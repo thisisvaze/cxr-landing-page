@@ -41,7 +41,7 @@ const Hero = () => {
                     <AnimationContainer animation="fadeUp" delay={1.4} className="flex justify-center w-full">
                     <Image
                         src="/images/tags.png"
-                        alt="CuriosityXR feature tags: AI teacher, mixed reality, 1M+ 3D models"
+                        alt="CuriosityXR awards: #3 Product of the Week in Education on Product Hunt, and #1 AI Learning App on the Meta Quest Store"
                         width={800}
                         height={380}
                         quality={100}
@@ -58,7 +58,7 @@ const Hero = () => {
                         <p className="text-lg text-muted-foreground max-w-xl">
                             CuriosityXR is the AI learning app for Meta Quest. Ask
                             anything out loud and your AI teacher answers in mixed
-                            reality &mdash; as a 3D model you can hold.
+                            reality, with a 3D model you can pick up and hold.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>

@@ -47,9 +47,9 @@ const Footer = () => {
                                 />
                             </div>
                             <p className="text-muted-foreground mt-4 text-sm">
-                                CuriosityXR is the #1 AI learning app on Meta Quest &mdash;
-                                an AI teacher that answers your questions with interactive
-                                3D models in mixed reality.
+                                CuriosityXR is the #1 AI learning app on Meta Quest. It puts
+                                an AI teacher in your room, answering your questions with
+                                interactive 3D models in mixed reality.
                                 <br />
                                 <br />
                                 Toronto, Canada

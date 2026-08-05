@@ -57,8 +57,8 @@ const CTA = () => {
                         <AnimationContainer animation="fadeUp" delay={0.6}>
                             <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-lg mx-auto mt-4">
                                 The first AI teacher that assists in 3D. ChatGPT answers
-                                in text; CuriosityXR answers in your room &mdash; ask about
-                                the heart and walk around a life-size beating one.
+                                in text. CuriosityXR answers in your room, so you can ask
+                                about the heart and walk around a life-size beating one.
                             </p>
                         </AnimationContainer>
 
