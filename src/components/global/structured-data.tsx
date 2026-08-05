@@ -4,7 +4,8 @@ import {
     APP_PRICE_USD,
     DEFAULT_DESCRIPTION,
     PROFILES,
-    RESEARCH_PAPER,
+    FOUNDER,
+    RESEARCH_PAPERS,
     SITE_URL,
     YOUTUBE_VIDEO_ID,
 } from "@/utils";
@@ -41,6 +42,7 @@ const graph = {
                 PROFILES.x,
                 PROFILES.discord,
             ],
+            founder: { "@id": `${SITE_URL}/#founder` },
         },
         {
             "@type": "WebSite",
@@ -112,32 +114,40 @@ const graph = {
                 embedUrl: `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`,
                 url: PROFILES.youtubeTrailer,
             },
-            subjectOf: { "@id": `${SITE_URL}/#paper` },
+            subjectOf: RESEARCH_PAPERS.map((paper) => ({
+                "@id": `${SITE_URL}/#paper-${paper.id}`,
+            })),
         },
         {
+            "@type": "Person",
+            "@id": `${SITE_URL}/#founder`,
+            name: FOUNDER.name,
+            jobTitle: FOUNDER.jobTitle,
+            worksFor: { "@id": `${SITE_URL}/#organization` },
+            sameAs: [...FOUNDER.sameAs],
+        },
+        ...RESEARCH_PAPERS.map((paper) => ({
             "@type": "ScholarlyArticle",
-            "@id": `${SITE_URL}/#paper`,
-            name: RESEARCH_PAPER.name,
-            headline: RESEARCH_PAPER.name,
-            author: RESEARCH_PAPER.authors.map((name) => ({
-                "@type": "Person",
-                name,
-            })),
+            "@id": `${SITE_URL}/#paper-${paper.id}`,
+            name: paper.name,
+            headline: paper.name,
+            author: paper.authors.map((name) =>
+                name === FOUNDER.name
+                    ? { "@id": `${SITE_URL}/#founder` }
+                    : { "@type": "Person", name },
+            ),
             isPartOf: {
                 "@type": "PublicationEvent",
-                name: RESEARCH_PAPER.venue,
+                name: paper.venue,
             },
-            publisher: {
-                "@type": "Organization",
-                name: "IEEE",
-            },
-            datePublished: RESEARCH_PAPER.datePublished,
-            pagination: RESEARCH_PAPER.pagination,
-            identifier: `https://doi.org/${RESEARCH_PAPER.doi}`,
-            sameAs: PROFILES.researchPaper,
-            url: PROFILES.researchPaper,
+            publisher: { "@type": "Organization", name: "IEEE" },
+            datePublished: paper.datePublished,
+            pagination: paper.pagination,
+            identifier: `https://doi.org/${paper.doi}`,
+            sameAs: paper.url,
+            url: paper.url,
             about: { "@id": `${SITE_URL}/#app` },
-        },
+        })),
         {
             "@type": "FAQPage",
             "@id": `${SITE_URL}/#faq`,

@@ -31,17 +31,42 @@ export const PROFILES = {
 } as const;
 
 /**
- * Peer-reviewed publication about the product itself. Verified against Crossref
- * (DOI 10.1109/aixvr59861.2024.00013). It currently outranks curiosityxr.com for
- * the brand query, so it is worth claiming as an entity we are connected to.
+ * Peer-reviewed publications behind the product. All citations verified against
+ * Crossref. The 2024 paper currently outranks curiosityxr.com for the brand
+ * query, so the body of work is worth claiming as connected entities rather than
+ * left floating unattached to the site.
  */
-export const RESEARCH_PAPER = {
-    name: "CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI",
-    authors: ["Aaditya Vaze", "Alexis Morris", "Ian Clarke"],
-    venue: "2024 IEEE International Conference on Artificial Intelligence and eXtended and Virtual Reality (AIxVR)",
-    doi: "10.1109/aixvr59861.2024.00013",
-    datePublished: "2024-01-17",
-    pagination: "41-49",
+export const RESEARCH_PAPERS = [
+    {
+        id: "aixvr-2024",
+        name: "CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI",
+        authors: ["Aaditya Vaze", "Alexis Morris", "Ian Clarke"],
+        venue: "2024 IEEE International Conference on Artificial Intelligence and eXtended and Virtual Reality (AIxVR)",
+        doi: "10.1109/aixvr59861.2024.00013",
+        datePublished: "2024-01-17",
+        pagination: "41-49",
+        url: "https://ieeexplore.ieee.org/document/10445534/",
+    },
+    {
+        id: "ieeevr-2023",
+        name: "Towards a Mixed Reality Agent to Support Multi-Modal Interactive Mini-Lessons That Help Users Learn Educational Concepts in Context",
+        authors: ["Aaditya Vaze", "Alexis Morris", "Ian Clarke"],
+        venue: "2023 IEEE Conference on Virtual Reality and 3D User Interfaces Abstracts and Workshops (VRW)",
+        doi: "10.1109/vrw58643.2023.00358",
+        datePublished: "2023-03",
+        pagination: "1026-1027",
+        url: "https://doi.org/10.1109/vrw58643.2023.00358",
+    },
+] as const;
+
+/** Person behind the work. The Scholar profile carries the citation record. */
+export const FOUNDER = {
+    name: "Aaditya Vaze",
+    jobTitle: "Founder",
+    sameAs: [
+        "https://scholar.google.com/citations?user=3qii1YcAAAAJ",
+        "https://www.thisisvaze.com",
+    ],
 } as const;
 
 /** Keep in sync with the Meta Horizon Store listing. */

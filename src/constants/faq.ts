@@ -52,7 +52,7 @@ export const FAQS: FAQItem[] = [
     {
         question: "Is CuriosityXR based on published research?",
         answer:
-            "Yes. CuriosityXR began as peer-reviewed research. The paper \"CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI\" by Aaditya Vaze, Alexis Morris and Ian Clarke was published by IEEE at the 2024 International Conference on Artificial Intelligence and eXtended and Virtual Reality (AIxVR). It sets out the context-aware, multi-modal approach the app is built on.",
+            "Yes. CuriosityXR began as peer-reviewed research by Aaditya Vaze, Alexis Morris and Ian Clarke, published by IEEE across two papers: \"Towards a Mixed Reality Agent to Support Multi-Modal Interactive Mini-Lessons That Help Users Learn Educational Concepts in Context\" at IEEE VR 2023, and \"CuriosityXR: Context-aware Education Experiences with Mixed Reality and Conversation AI\" at IEEE AIxVR 2024. Together they set out the context-aware, multi-modal approach the app is built on.",
     },
     {
         question: "How much does CuriosityXR cost and where can I get it?",
