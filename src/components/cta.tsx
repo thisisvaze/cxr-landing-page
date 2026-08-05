@@ -52,9 +52,11 @@ const CTA = () => {
                 <div className="flex flex-col items-center justify-center w-full z-30">
 
                     <AnimationContainer animation="fadeUp" delay={1.1} className="mb-2">
-                        <h3 className="font-architects-daughter text-xl md:text-2xl from-gray-500 via-gray-300 to-gray-500 bg-gradient-to-r bg-clip-text text-transparent font-semibold">
+                        {/* Eyebrow text, not a section heading — as an <h3> it preceded
+                            this section's <h2> and broke the heading order. */}
+                        <p className="font-architects-daughter text-xl md:text-2xl from-gray-500 via-gray-300 to-gray-500 bg-gradient-to-r bg-clip-text text-transparent font-semibold">
                             #1 AI LEARNING APP ON META QUEST
-                        </h3>
+                        </p>
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={1.2} className="w-full max-w-[200px] my-16">
@@ -64,7 +66,6 @@ const CTA = () => {
                                 width={1200}
                                 height={1200}
                                 className="w-full h-full object-cover rounded-xl"
-                                priority
                             />
                     </AnimationContainer>
 

@@ -5,6 +5,7 @@ import {
     DEFAULT_DESCRIPTION,
     PROFILES,
     SITE_URL,
+    YOUTUBE_VIDEO_ID,
 } from "@/utils";
 
 /**
@@ -98,14 +99,17 @@ const graph = {
                 `${SITE_URL}/images/f3.png`,
                 `${SITE_URL}/images/f5.png`,
             ],
+            // Values below mirror the actual YouTube listing — VideoObject is only
+            // eligible for rich results if it matches the real video.
             video: {
                 "@type": "VideoObject",
-                name: `${APP_NAME} trailer`,
+                name: `${APP_NAME} — Launch Trailer — Meta Quest 3 & 3S`,
                 description: `Watch how ${APP_NAME} turns spoken questions into interactive 3D models on Meta Quest.`,
                 thumbnailUrl: `${SITE_URL}/images/mission_header.png`,
-                uploadDate: "2025-01-01",
-                contentUrl: `${SITE_URL}/images/v.webm`,
-                embedUrl: PROFILES.youtubeTrailer,
+                uploadDate: "2024-10-22T14:24:12-07:00",
+                duration: "PT1M53S",
+                embedUrl: `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}`,
+                url: PROFILES.youtubeTrailer,
             },
         },
         {

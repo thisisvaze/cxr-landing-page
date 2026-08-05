@@ -70,7 +70,6 @@ const Features = () => {
                                 width={500}
                                 height={350}
                                 className="w-full h-[350px] object-cover"
-                                priority
                             />
                         </MagicCard>
                     </AnimationContainer>
@@ -129,7 +128,6 @@ const Features = () => {
                                             fill
                                             className="object-cover w-full object-bottom"
                                             sizes="(max-width: 768px) 100vw, 60vw"
-                                            priority
                                         />
                                     </div>
                                 </AnimationContainer>
@@ -160,7 +158,6 @@ const Features = () => {
                                             fill
                                             className="object-cover w-full object-bottom"
                                             sizes="(max-width: 768px) 100vw, 40vw"
-                                            priority
                                         />
                                     </div>
                                 </AnimationContainer>

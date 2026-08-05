@@ -6,6 +6,7 @@ import {
     DEFAULT_TITLE,
     PROFILES,
     SITE_URL,
+    YOUTUBE_VIDEO_ID,
     generateMetadata,
 } from "./metadata";
 
@@ -17,5 +18,6 @@ export {
     DEFAULT_TITLE,
     PROFILES,
     SITE_URL,
+    YOUTUBE_VIDEO_ID,
     generateMetadata,
 };

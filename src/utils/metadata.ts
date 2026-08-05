@@ -17,6 +17,8 @@ export const SITE_URL = (
 
 export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "CuriosityXR";
 
+export const YOUTUBE_VIDEO_ID = "um-3guz9FO0";
+
 /** Canonical off-site profiles — used for `sameAs` in JSON-LD and OG links. */
 export const PROFILES = {
     metaStore: "https://www.meta.com/experiences/curiosityxr-interactive-ai-learning/8662430537161741/",
@@ -24,7 +26,7 @@ export const PROFILES = {
     linkedin: "https://www.linkedin.com/company/curiosityxr",
     x: "https://x.com/curiosityxr",
     discord: "https://discord.gg/aF2cRG6k62",
-    youtubeTrailer: "https://www.youtube.com/watch?v=um-3guz9FO0",
+    youtubeTrailer: `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`,
 } as const;
 
 /** Keep in sync with the Meta Horizon Store listing. */

@@ -35,7 +35,9 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: "*",
                 allow: "/",
-                disallow: ["/api/", "/_next/static/chunks/"],
+                // Never disallow /_next/ — Google must fetch the JS and CSS to render
+                // the page, and blocking those assets makes it index a blank shell.
+                disallow: ["/api/"],
             },
             {
                 userAgent: ANSWER_ENGINE_CRAWLERS,

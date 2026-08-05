@@ -76,7 +76,6 @@ const CTA = () => {
                                     width={1200}
                                     height={1200}
                                     className="w-full h-full object-cover rounded-xl"
-                                    priority
                                 />
                             </MagicCard>
                         </AnimationContainer>

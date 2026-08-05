@@ -84,7 +84,7 @@ const Hero = () => {
                         <video
                             src="/images/v.webm"
                             aria-label="CuriosityXR on Meta Quest: a spoken question turns into an interactive 3D model in mixed reality"
-                            poster="/images/mission_header.png"
+                            poster="/images/v-poster.webp"
                             autoPlay
                             loop
                             muted
