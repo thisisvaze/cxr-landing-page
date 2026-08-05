@@ -1,4 +1,3 @@
-import { FAQS } from "@/constants";
 import {
     APP_NAME,
     APP_PRICE_USD,
@@ -124,6 +123,10 @@ const graph = {
             name: FOUNDER.name,
             jobTitle: FOUNDER.jobTitle,
             worksFor: { "@id": `${SITE_URL}/#organization` },
+            affiliation: {
+                "@type": "CollegeOrUniversity",
+                name: FOUNDER.affiliation,
+            },
             sameAs: [...FOUNDER.sameAs],
         },
         ...RESEARCH_PAPERS.map((paper) => ({
@@ -148,21 +151,11 @@ const graph = {
             url: paper.url,
             about: { "@id": `${SITE_URL}/#app` },
         })),
-        {
-            "@type": "FAQPage",
-            "@id": `${SITE_URL}/#faq`,
-            isPartOf: { "@id": `${SITE_URL}/#website` },
-            mainEntity: FAQS.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: {
-                    "@type": "Answer",
-                    text: faq.answer,
-                },
-            })),
-        },
     ],
 };
+// FAQPage deliberately lives with each page's own PageSchema, not here. This
+// component renders in the root layout, so a FAQPage node added here would claim
+// the homepage's questions are on every page of the site.
 
 const StructuredData = () => (
     <script

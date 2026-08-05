@@ -1,10 +1,21 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion";
 import { FAQS } from '@/constants';
+import type { FAQItem } from '@/constants/faq';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper";
 import SectionBadge from './ui/section-badge';
 
-const FAQ = () => {
+interface Props {
+    items?: FAQItem[];
+    heading?: string;
+    intro?: string;
+}
+
+const FAQ = ({
+    items = FAQS,
+    heading = "CuriosityXR, answered",
+    intro = "What CuriosityXR is, which Meta Quest headsets it runs on, and how it differs from ChatGPT.",
+}: Props = {}) => {
     return (
         <Wrapper className="py-20 lg:py-32">
             <div className="flex flex-col items-center text-center gap-4">
@@ -14,21 +25,20 @@ const FAQ = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
-                        CuriosityXR, answered
+                        {heading}
                     </h2>
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        What CuriosityXR is, which Meta Quest headsets it runs on, and
-                        how it differs from ChatGPT.
+                        {intro}
                     </p>
                 </AnimationContainer>
             </div>
 
             <div className="max-w-3xl mx-auto pt-10">
                 <Accordion type="single" collapsible className="w-full space-y-4">
-                    {FAQS.map((item, index) => (
+                    {items.map((item, index) => (
                         <AnimationContainer
                             key={index}
                             animation="fadeUp"

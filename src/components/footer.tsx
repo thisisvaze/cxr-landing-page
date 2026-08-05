@@ -8,6 +8,8 @@ import Images from "./global/images";
 import { PROFILES } from "@/utils";
 const PRODUCT_LINKS = [
     { label: "Get CuriosityXR on Meta Quest", href: PROFILES.metaStore, external: true },
+    { label: "AI tutor for VR", href: "/vr-ai-tutor", external: false },
+    { label: "Education on Meta Quest", href: "/meta-quest-education", external: false },
     { label: "Watch the trailer", href: PROFILES.youtubeTrailer, external: true },
     { label: "FAQ", href: "/#faq", external: false },
     { label: "Join the Discord", href: PROFILES.discord, external: true },

@@ -59,13 +59,21 @@ export const RESEARCH_PAPERS = [
     },
 ] as const;
 
-/** Person behind the work. The Scholar profile carries the citation record. */
+/**
+ * Person behind the work. The Scholar profile carries the citation record.
+ *
+ * Two Scholar profiles exist for this author: 0KB5rnwAAAAJ (ACE Lab, OCAD
+ * University, 4 articles) and 3qii1YcAAAAJ (no affiliation, 3 articles). Only
+ * the maintained one is listed here. Pointing sameAs at both would assert that
+ * a single person is two entities, which is the opposite of what this is for.
+ */
 export const FOUNDER = {
     name: "Aaditya Vaze",
     jobTitle: "Founder",
+    affiliation: "ACE Lab, OCAD University",
     sameAs: [
-        "https://scholar.google.com/citations?user=3qii1YcAAAAJ",
-        "https://www.thisisvaze.com",
+        "https://scholar.google.com/citations?user=0KB5rnwAAAAJ",
+        "https://www.thisisvaze.com/",
     ],
 } as const;
 

@@ -18,5 +18,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "weekly",
             priority: 1,
         },
+        {
+            url: `${SITE_URL}/vr-ai-tutor`,
+            lastModified: HOMEPAGE_LAST_MODIFIED,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${SITE_URL}/meta-quest-education`,
+            lastModified: HOMEPAGE_LAST_MODIFIED,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
     ];
 }
