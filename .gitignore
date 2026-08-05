@@ -131,3 +131,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .vercel
+
+# pnpm auto-generates this with only an allowBuilds field, which breaks
+# `pnpm install` ("packages field missing or empty") on Vercel.
+pnpm-workspace.yaml
