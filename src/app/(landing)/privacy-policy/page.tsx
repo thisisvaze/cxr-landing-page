@@ -13,120 +13,74 @@ export const metadata = buildMetadata({
   noIndex: true,
 });
 
-export default function SupportPage() {
+export default function PrivacyPolicyPage() {
   return (
     <main className="pt-32 pb-24">
       <Wrapper>
         <AnimationContainer animation="fadeUp" delay={0.2}>
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
-          
+
           <div className="prose prose-lg prose-invert max-w-none">
+            <p>This policy explains how CuriosityXR handles personal information when you use our app, website, and CXR Plus services.</p>
+            <p className="text-muted-foreground text-sm mt-2">Last updated: September 5, 2026</p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Information we process</h2>
             <p>
-              At CuriosityXR, we understand the importance of privacy and the protection of personal information. 
-              This privacy policy outlines how we collect, use, disclose, and protect your personal information 
-              when you use our application and services.
-            </p>
-            
-            <p className="text-muted-foreground text-sm mt-2">Last updated: Mar 4, 2023</p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">What information do we collect?</h2>
-            <p>
-              When you use our application, we may collect certain personal information such as your name, 
-              email address, and location. We may also collect information related to your device, such as 
-              your IP address, browser type, and operating system. Additionally, we collect data related to 
-              your usage of our application and services, such as the 3D models you interact with and the 
-              questions you ask.
-            </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">How do we use your information?</h2>
-            <p>
-              We use your personal information to provide our services to you and to improve our application. 
-              Specifically, we use your information to:
-            </p>
-            <ul className="list-disc pl-6 mt-2 mb-4">
-              <li>Provide access to 3D models and the ability to ask questions.</li>
-              <li>Respond to your inquiries and customer service requests.</li>
-              <li>
-                Improve our application and services, such as by analyzing usage data to identify 
-                trends and areas for improvement.
-              </li>
-              <li>
-                Personalize your experience, such as by recommending content based on your previous usage.
-              </li>
-            </ul>
-            <p>
-              We may also use your information for marketing purposes, such as to send promotional 
-              emails or other communications about our application and services.
-            </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">How do we disclose your information?</h2>
-            <p>
-              We may disclose your personal information to third-party service providers who assist us in 
-              providing our services. For example, we may use a third-party hosting provider to host our 
-              application and store user data. We may also disclose your information in response to a 
-              subpoena, court order, or other legal request, or to comply with applicable laws or regulations. 
-              Additionally, we may disclose your information if we believe it is necessary to investigate, 
-              prevent, or take action regarding illegal activities, fraud, or violations of our terms of service.
-            </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">How we protect your information?</h2>
-            <p>
-              We take reasonable measures to protect your personal information from unauthorized access, 
-              disclosure, or destruction. We use industry-standard security measures, such as encryption 
-              and secure storage, to protect your data. However, no method of transmission over the internet 
-              or electronic storage is 100% secure. While we strive to use commercially acceptable means to 
-              protect your personal information, we cannot guarantee its absolute security.
-            </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">How can you update/delete my information?</h2>
-            <p>
-              Yes, you can update or correct your information depending on your relationship with Curiosity XR. 
-              If you are a personnel of the company, you may refer to the internal employment policies for 
-              instructions on how to update or correct your information. As a customer, you have the right to 
-              request the restriction of certain uses and disclosures of your personally identifiable information.
+              Depending on the features you use, we process microphone audio, transcripts, questions,
+              conversation history, content you submit, and information about the models and images you
+              interact with. Headset, controller, and hand tracking support interactions in the app;
+              information about what you point at, look toward, or hold can provide context for your
+              questions. We also process device and connection information such as IP address and device
+              type, usage and error logs, and contact details you provide to support.
             </p>
             <p>
-              You may contact Curiosity XR to update or correct your personally identifiable information, 
-              change your communication preferences, or delete your personally identifiable information on 
-              their system by cancelling your account. However, such changes will not affect other information 
-              that the company maintains or has provided to third parties in accordance with their privacy policy.
+              For purchases and subscriptions, we use your app-scoped Meta User ID, purchase records,
+              subscription and trial status, and billing period dates to verify and restore access. Meta
+              handles checkout and payment details.
+            </p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">How we use and share information</h2>
+            <p>
+              We use this information to provide personalized AI tutoring, speech features, learning content,
+              subscription access, support, and service improvements. Audio and relevant conversation or
+              content data are sent to service providers to transcribe speech, generate responses and visuals,
+              and provide spoken answers.
             </p>
             <p>
-              To protect your privacy and security, Curiosity XR may take reasonable steps, such as requesting 
-              a unique password, to verify your identity before granting you profile access or making corrections. 
-              It is your responsibility to maintain the secrecy of your unique password and account information 
-              at all times.
+              We use service providers for AI processing, hosting, storage, and analytics. Information may be
+              processed outside your country. We do not sell personal information. We may disclose information
+              when required by law or necessary to protect users and our services.
             </p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Retention and your choices</h2>
             <p>
-              Please note that it may not be technically possible to remove each and every record of the 
-              information you have provided to Curiosity XR from their system. Backing up their systems to 
-              protect information from inadvertent loss means that a copy of your information may exist in a 
-              non-erasable form that may be difficult or impossible for the company to locate. However, 
-              Curiosity XR will promptly update, correct, change, or delete personal information stored in 
-              databases they actively use, and other readily searchable media, as appropriate and to the 
-              extent reasonably and technically practicable.
+              We retain personal information as needed to provide our services, resolve issues, and meet legal
+              obligations. You can control microphone access through your device settings. To request access,
+              correction, or deletion of your data, email <a href="mailto:support@curiosityxr.com" className="text-indigo-400 hover:underline">support@curiosityxr.com</a>. We may verify your identity before handling
+              your request. We will delete your data on request unless retention is required by law.
             </p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Security</h2>
             <p>
-              As an end user, if you wish to update, delete, or receive any information that Curiosity XR 
-              has about you, you may contact them at <a href="mailto:support@curiosityxr.com" className="text-indigo-400 hover:underline">hello@curiosityxr.com</a>.
+              We take reasonable measures to protect personal information from unauthorized access, loss, or
+              misuse.
             </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">Children's privacy</h2>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Children</h2>
             <p>
-              Our application is not intended for use by children under the age of 13. We do not knowingly 
-              collect personal information from children under the age of 13.
+              CuriosityXR is not intended for children under 13. We do not knowingly collect personal
+              information from children under 13. Contact us if you believe a child has provided data so we
+              can address it.
             </p>
-            
-            <h2 className="text-2xl font-bold mt-8 mb-4">Changes to the privacy policy</h2>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Updates and contact</h2>
             <p>
-              We may update this privacy policy from time to time. We will notify you of any changes by posting 
-              the new policy on our website or within our application. You are advised to review this privacy 
-              policy periodically for any changes.
+              We will post policy updates here and revise the date above. For privacy questions, contact
+              CuriosityXR at <a href="mailto:support@curiosityxr.com" className="text-indigo-400 hover:underline">support@curiosityxr.com</a>.
             </p>
-            
           </div>
         </AnimationContainer>
       </Wrapper>
     </main>
   );
-} 
+}
