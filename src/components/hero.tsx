@@ -7,7 +7,7 @@ import Images from "./global/images";
 import Wrapper from "./global/wrapper";
 import { Button } from "./ui/button";
 import Marquee from "./ui/marquee";
-import SectionBadge from "./ui/section-badge";
+import HeroBadges from "./hero-badges";
 import { useState } from "react";
 
 const Hero = () => {
@@ -25,49 +25,29 @@ const Hero = () => {
         <Wrapper className="pt-32 lg:pt-40 relative min-h-screen w-full flex-1">
             <div className="flex flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-6 max-w-3xl">
-                    <AnimationContainer animation="fadeUp" delay={0.2}>
-                        <SectionBadge title="#1 AI Learning App on Meta Quest" />
+                    <AnimationContainer animation="fadeUp" delay={0.2} className="flex justify-center w-full mb-2 md:mb-4">
+                        <HeroBadges />
                     </AnimationContainer>
-                    {/* <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <Image 
-                            src="/images/cxr-logo.png" 
-                            alt="Logo" 
-                            width={250} 
-                            height={100}
-                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
-                            priority
-                        />
-                    </AnimationContainer> */}
-                    <AnimationContainer animation="fadeUp" delay={1.4} className="flex justify-center w-full">
-                    <Image
-                        src="/images/tags.png"
-                        alt="CuriosityXR awards: #3 Product of the Week in Education on Product Hunt, and #1 AI Learning App on the Meta Quest Store"
-                        width={800}
-                        height={380}
-                        quality={100}
-                        className="w-auto h-auto mb-2 md:mb-8 max-w-[300px] md:max-w-[400px]" 
-                    />
-                </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h1 className="text-5xl font-heading lg:text-6xl font-medium !leading-tighter text-transparent bg-clip-text bg-neutral-100">
-                            Learn with AI & <br />
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-medium tracking-tight text-white leading-[1.1]">
+                            Learn with AI & <br className="hidden sm:inline" />
                             1M+ 3D models
                         </h1>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <p className="text-lg text-muted-foreground max-w-xl">
+                        <p className="text-base sm:text-lg text-neutral-300 max-w-xl mx-auto leading-relaxed">
                             CuriosityXR is the AI learning app for Meta Quest. Ask
                             anything out loud and your AI teacher answers in mixed
                             reality, with a 3D model you can pick up and hold.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap items-center justify-center gap-3.5">
                             <Link href={trailerUrl} target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline">Watch Trailer</Button>
+                                <Button variant="outline" className="rounded-full px-6">Watch Trailer</Button>
                             </Link>
                             <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
-                                <Button className="magic-button">
+                                <Button className="magic-button rounded-full px-6">
                                     <span className="relative z-10">Get on Meta Quest</span>
                                 </Button>
                             </Link>
@@ -75,7 +55,7 @@ const Hero = () => {
                     </AnimationContainer>
                     
                 </div>
-                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-16">
+                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-12 sm:mt-16 w-full flex justify-center">
                     <div 
                         className="relative w-full max-w-[800px] group"
                         onMouseEnter={() => setIsHovering(true)}

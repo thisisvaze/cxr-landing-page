@@ -76,12 +76,12 @@ export function MagicCard({
   return (
     <div
       ref={cardRef}
-      className={cn("group relative size-full rounded-xl", className)}
+      className={cn("group relative w-full rounded-2xl overflow-hidden", className)}
     >
-      <div className="absolute inset-px z-10 rounded-xl bg-background" />
-      <div className="relative z-30">{children}</div>
+      <div className="absolute inset-px z-10 rounded-[inherit] bg-neutral-950/90" />
+      <div className="relative z-30 flex flex-col h-full w-full">{children}</div>
       <motion.div
-        className="pointer-events-none absolute inset-px z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-px z-10 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px, ${gradientColor}, transparent 100%)
@@ -90,13 +90,13 @@ export function MagicCard({
         }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-0 rounded-xl bg-border duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 rounded-[inherit] bg-white/10 duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
             radial-gradient(${gradientSize}px circle at ${mouseX}px ${mouseY}px,
               ${gradientFrom}, 
               ${gradientTo}, 
-              hsl(var(--border)) 100%
+              rgba(255, 255, 255, 0.1) 100%
             )
           `,
         }}

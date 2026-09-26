@@ -1,4 +1,4 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { FAQS } from '@/constants';
 import type { FAQItem } from '@/constants/faq';
 import AnimationContainer from './global/animation-container';
@@ -18,50 +18,42 @@ const FAQ = ({
 }: Props = {}) => {
     return (
         <Wrapper className="py-20 lg:py-32">
-            <div className="flex flex-col items-center text-center gap-4">
+            <div className="flex flex-col items-center text-center gap-4 max-w-3xl mx-auto mb-12">
                 <AnimationContainer animation="fadeUp" delay={0.2}>
                     <SectionBadge title="FAQ" />
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-gradient-to-b from-foreground to-neutral-400">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium tracking-tight text-white leading-tight">
                         {heading}
                     </h2>
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
-                    <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg text-neutral-300 max-w-xl mx-auto leading-relaxed">
                         {intro}
                     </p>
                 </AnimationContainer>
             </div>
 
-            <div className="max-w-3xl mx-auto pt-10">
-                <Accordion type="single" collapsible className="w-full space-y-4">
+            <div className="max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full space-y-3.5">
                     {items.map((item, index) => (
                         <AnimationContainer
                             key={index}
                             animation="fadeUp"
-                            delay={0.5 + (index * 0.1)}
+                            delay={0.4 + (index * 0.05)}
                         >
                             <AccordionItem
                                 value={`item-${index}`}
-                                className="border-none bg-[#191919] rounded-2xl px-6"
+                                className="border border-white/10 hover:border-white/20 transition-all bg-neutral-900/60 rounded-xl sm:rounded-2xl px-5 sm:px-6 shadow-sm overflow-hidden"
                             >
-                                <AccordionTrigger className="hover:no-underline py-6 text-base md:text-lg text-left font-normal">
+                                <AccordionTrigger className="hover:no-underline py-5 text-base sm:text-lg text-left font-medium text-white/95 hover:text-white transition-colors">
                                     {item.question}
                                 </AccordionTrigger>
-                                {/*
-                                  * forceMount keeps every answer in the DOM even while
-                                  * collapsed. Radix unmounts closed panels by default,
-                                  * which hid the answers from crawlers that don't run JS
-                                  * and left the FAQPage JSON-LD without matching on-page
-                                  * text. Radix still sets `hidden` when closed, so the
-                                  * collapsed visual is unchanged.
-                                  */}
                                 <AccordionContent
                                     forceMount
-                                    className="text-muted-foreground text-left"
+                                    className="text-neutral-400 text-left text-sm sm:text-base leading-relaxed pb-5 pt-1"
                                 >
                                     {item.answer}
                                 </AccordionContent>

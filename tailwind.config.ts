@@ -21,7 +21,6 @@ const config = {
 			fontFamily: {
 				base: ['var(--font-base)'],
 				heading: ['var(--font-heading)'],
-				'architects-daughter': ['var(--font-architects-daughter)'],
 			},
 			colors: {
 				background: 'hsl(var(--background))',
@@ -117,7 +116,7 @@ const config = {
 			},
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [],
 } satisfies Config;
 
 export default config;

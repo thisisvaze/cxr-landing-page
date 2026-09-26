@@ -1,10 +1,7 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper"
-import { LucideProps } from 'lucide-react';
-import Images from "./global/images";
 import { PROFILES } from "@/utils";
 const PRODUCT_LINKS = [
     { label: "Get CuriosityXR on Meta Quest", href: PROFILES.metaStore, external: true },
@@ -19,11 +16,6 @@ const COMPANY_LINKS = [
     { label: "Privacy Policy", href: "/privacy-policy", external: false },
     { label: "CuriosityXR on Product Hunt", href: PROFILES.productHunt, external: true },
     { label: "Research paper (IEEE AIxVR 2024)", href: PROFILES.researchPaper, external: true },
-];
-
-const SOCIAL_LINKS = [
-    { icon: Linkedin, href: PROFILES.linkedin, label: "CuriosityXR on LinkedIn" },
-    { icon: Twitter, href: PROFILES.x, label: "CuriosityXR on X" },
 ];
 
 const Footer = () => {
@@ -59,24 +51,6 @@ const Footer = () => {
                             </p>
                             <div className="mt-4 text-sm text-muted-foreground">
                                 <p>support@curiosityxr.com</p>
-                            </div>
-                            <div className="flex items-center gap-4 mt-6">
-                                {SOCIAL_LINKS.map((social, index) => (
-                                    <AnimationContainer
-                                        key={index}
-                                        animation="fadeIn"
-                                    >
-                                        <Link
-                                            href={social.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label={social.label}
-                                            className="text-muted-foreground hover:text-primary transition-colors"
-                                        >
-                                            <social.icon className="size-5" />
-                                        </Link>
-                                    </AnimationContainer>
-                                ))}
                             </div>
                         </div>
                 </AnimationContainer>

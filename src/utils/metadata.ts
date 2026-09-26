@@ -23,8 +23,6 @@ export const YOUTUBE_VIDEO_ID = "um-3guz9FO0";
 export const PROFILES = {
     metaStore: "https://www.meta.com/experiences/curiosityxr-interactive-ai-learning/8662430537161741/",
     productHunt: "https://www.producthunt.com/products/curiosityxr",
-    linkedin: "https://www.linkedin.com/company/curiosityxr",
-    x: "https://x.com/curiosityxr",
     discord: "https://discord.gg/aF2cRG6k62",
     youtubeTrailer: `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`,
     researchPaper: "https://ieeexplore.ieee.org/document/10445534/",

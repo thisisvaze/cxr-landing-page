@@ -1,6 +1,5 @@
-import { Toaster } from "@/components/ui/sonner";
 import StructuredData from "@/components/global/structured-data";
-import { architectsDaughter, base, heading } from "@/constants/fonts";
+import { base, heading } from "@/constants/fonts";
 import { cn } from "@/lib";
 import "./globals.css";
 import { APP_NAME, DEFAULT_TITLE, generateMetadata } from "@/utils";
@@ -35,10 +34,8 @@ export default function RootLayout({
                     "min-h-screen bg-[#101010] text-foreground font-base antialiased overflow-x-hidden dark",
                     base.variable,
                     heading.variable,
-                    architectsDaughter.variable,
                 )}
             >
-                <Toaster richColors theme="dark" position="bottom-center" />
                 {children}
                 <Analytics />
             </body>

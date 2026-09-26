@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants";
 import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
-import Image from "next/image";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import GlassSurface from "@/components/ui/GlassSurface";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { MenuIcon, XIcon } from "lucide-react";
 import Link from "next/link";
 import { RefObject, useRef, useState } from "react";
@@ -41,119 +41,127 @@ const Navbar = () => {
             {/* Desktop */}
             <motion.div
                 style={{
-                    width: "40%",
-                    minWidth: "800px",
+                    width: "min(90vw, 820px)",
                 }}
-                className={cn(
-                    "hidden lg:flex bg-transparent self-start items-center justify-between py-2 rounded-full relative z-[50] mx-auto border border-t-foreground/20 border-b-foreground/10 border-x-foreground/15",
-                    visible && "bg-background/60 backdrop-blur-md"
-                )}
+                className="hidden lg:flex self-start items-center justify-between relative z-[50] mx-auto"
             >
-                <Wrapper className="flex items-center justify-between lg:px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <Link href="/" className="flex items-center gap-2">
-                            <Icons.logo className="w-max h-5 !my-2" />
-                            <span className="text-base font-medium ml-2">CuriosityXR</span>
-                        {/* <Image 
-                            src="/images/cxr-logo.png" 
-                            alt="Logo" 
-                            width={150} 
-                            height={100}
-                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
-                            priority
-                        />   */}
-
-
-                        </Link>
-                    </motion.div>
-
-                    <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-2 text-sm text-muted-foreground font-medium">
-                        <AnimatePresence>
-                            {NAV_LINKS.map((link, index) => (
-                                <AnimationContainer
-                                    key={index}
-                                    animation="fadeDown"
-                                    delay={0.1 * index}
-                                >
-                                    <div className="relative">
-                                        <Link href={link.link} target={link.target} className="hover:text-foreground transition-all duration-200 hover:bg-accent rounded-md px-4 py-2">
-                                            {link.name}
-                                        </Link>
-                                    </div>
-                                </AnimationContainer>
-                            ))}
-                        </AnimatePresence>
-                    </div>
-
-                    <AnimationContainer animation="fadeLeft" delay={0.1}>
-                        <div className="flex items-center gap-x-4">
-                            <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
-                                <Button size="sm" className="magic-button">
-                                    <span className="relative z-10">Get on Meta Quest</span>
-                                    </Button>
+                <GlassSurface
+                    width="100%"
+                    height="auto"
+                    borderRadius={50}
+                    borderWidth={0.05}
+                    brightness={45}
+                    opacity={0.85}
+                    blur={12}
+                    displace={1.2}
+                    backdropBlur={24}
+                    backgroundOpacity={visible ? 0.6 : 0.35}
+                    saturation={1.8}
+                    distortionScale={-32}
+                    redOffset={0}
+                    greenOffset={2}
+                    blueOffset={4}
+                    className="w-full border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
+                    contentClassName="!p-0 w-full"
+                >
+                    <Wrapper className="flex items-center justify-between lg:px-4 py-2 w-full">
+                        <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Link href="/" className="flex items-center gap-2">
+                                <Icons.logo className="w-max h-5 !my-2" />
+                                <span className="text-base font-medium ml-2">CuriosityXR</span>
                             </Link>
+                        </motion.div>
+
+                        <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-2 text-sm text-muted-foreground font-medium pointer-events-none">
+                            <AnimatePresence>
+                                {NAV_LINKS.map((link, index) => (
+                                    <AnimationContainer
+                                        key={index}
+                                        animation="fadeDown"
+                                        delay={0.1 * index}
+                                    >
+                                        <div className="relative pointer-events-auto">
+                                            <Link href={link.link} target={link.target} className="hover:text-foreground transition-all duration-200 hover:bg-accent rounded-md px-4 py-2">
+                                                {link.name}
+                                            </Link>
+                                        </div>
+                                    </AnimationContainer>
+                                ))}
+                            </AnimatePresence>
                         </div>
-                    </AnimationContainer>
-                </Wrapper>
+
+                        <AnimationContainer animation="fadeLeft" delay={0.1}>
+                            <div className="flex items-center gap-x-4">
+                                <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
+                                    <Button size="sm" className="magic-button">
+                                        <span className="relative z-10">Get on Meta Quest</span>
+                                    </Button>
+                                </Link>
+                            </div>
+                        </AnimationContainer>
+                    </Wrapper>
+                </GlassSurface>
             </motion.div>
 
             {/* Mobile */}
-            <motion.div
-                animate={{
-                    borderTopLeftRadius: open ? "0.75rem" : "2rem",
-                    borderTopRightRadius: open ? "0.75rem" : "2rem",
-                    borderBottomLeftRadius: open ? "0" : "2rem",
-                    borderBottomRightRadius: open ? "0" : "2rem",
-                }}
-                transition={{
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 50,
-                }}
-                className={cn(
-                    "flex relative flex-col lg:hidden w-11/12 justify-between items-center mx-auto py-4 z-50 border",
-                    visible && "bg-neutral-950/80 backdrop-blur-md",
-                    open && "border-transparent"
-                )}
-            >
-                <Wrapper className="flex items-center justify-between lg:px-4">
-                    <div className="flex items-center justify-between gap-x-4 w-full">
-                        <AnimationContainer animation="fadeRight" delay={0.1}>
-                            <Link href="/" className="flex items-center gap-2">
-                            {/* <Icons.logo className="w-max h-6" /> */}
-                            <span className="text-base font-medium ml-2">CuriosityXR</span>
-                            </Link>
-                        </AnimationContainer>
+            <div className="flex relative flex-col lg:hidden w-11/12 mx-auto z-50">
+                <GlassSurface
+                    width="100%"
+                    height="auto"
+                    borderRadius={open ? 16 : 32}
+                    borderWidth={0.05}
+                    brightness={45}
+                    opacity={0.85}
+                    blur={12}
+                    displace={1.2}
+                    backdropBlur={24}
+                    backgroundOpacity={visible ? 0.65 : 0.4}
+                    saturation={1.8}
+                    distortionScale={-28}
+                    redOffset={0}
+                    greenOffset={2}
+                    blueOffset={4}
+                    className="w-full border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.36)]"
+                    contentClassName="!p-0 w-full"
+                >
+                    <Wrapper className="flex items-center justify-between px-4 py-3 w-full">
+                        <div className="flex items-center justify-between gap-x-4 w-full">
+                            <AnimationContainer animation="fadeRight" delay={0.1}>
+                                <Link href="/" className="flex items-center gap-2">
+                                    <span className="text-base font-medium ml-2">CuriosityXR</span>
+                                </Link>
+                            </AnimationContainer>
 
-                        <AnimationContainer animation="fadeLeft" delay={0.1}>
-                            <div className="flex items-center justify-center gap-x-4">
-                                <Button size="sm" className="magic-button">
-                                    <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" className="flex items-center">
-                                        <span className="relative z-10">Get on Meta Quest</span>
-                                    </Link>
-                                </Button>
-                                {open ? (
-                                    <XIcon
-                                        className="text-black dark:text-white"
-                                        onClick={() => setOpen(!open)}
-                                    />
-                                ) : (
-                                    <MenuIcon
-                                        className="text-black dark:text-white"
-                                        onClick={() => setOpen(!open)}
-                                    />
-                                )}
-                            </div>
-                        </AnimationContainer>
-                    </div>
-                </Wrapper>
+                            <AnimationContainer animation="fadeLeft" delay={0.1}>
+                                <div className="flex items-center justify-center gap-x-4">
+                                    <Button size="sm" className="magic-button">
+                                        <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" className="flex items-center">
+                                            <span className="relative z-10">Get on Meta Quest</span>
+                                        </Link>
+                                    </Button>
+                                    {NAV_LINKS.length > 0 && (open ? (
+                                        <XIcon
+                                            className="text-black dark:text-white"
+                                            onClick={() => setOpen(!open)}
+                                        />
+                                    ) : (
+                                        <MenuIcon
+                                            className="text-black dark:text-white"
+                                            onClick={() => setOpen(!open)}
+                                        />
+                                    ))}
+                                </div>
+                            </AnimationContainer>
+                        </div>
+                    </Wrapper>
+                </GlassSurface>
 
                 <AnimatePresence>
-                    {open && (
+                    {open && NAV_LINKS.length > 0 && (
                         <motion.div
                             ref={mobileMenuRef}
                             initial={{ opacity: 0 }}
@@ -178,33 +186,10 @@ const Navbar = () => {
                                     </Link>
                                 </AnimationContainer>
                             ))}
-                            {/* <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
-                                
-                                    <>
-                                        <Link href="/signin" className="w-full">
-                                            <Button
-                                                onClick={() => setOpen(false)}
-                                                variant="secondary"
-                                                className="block md:hidden w-full"
-                                            >
-                                                Login
-                                            </Button>
-                                        </Link>
-                                        <Link href="/signup" className="w-full">
-                                            <Button
-                                                onClick={() => setOpen(false)}
-                                                variant="default"
-                                                className="block md:hidden w-full"
-                                            >
-                                                Start for free
-                                            </Button>
-                                    </Link>
-                                </>
-                            </AnimationContainer> */}
                         </motion.div>
                     )}
                 </AnimatePresence>
-            </motion.div>
+            </div>
         </header>
     );
 };
