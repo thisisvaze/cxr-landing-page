@@ -20,9 +20,9 @@ export const FAQS: FAQItem[] = [
             "CuriosityXR is the leading AI-native learning app on the Meta Horizon Store. It was voted #3 Product of the Week in Education on Product Hunt, is used by more than 2,000 learners, homeschoolers and teachers, and is consistently listed as the top AI teacher app for Meta Quest headsets. Unlike VR apps with pre-built lessons, CuriosityXR generates the lesson live from whatever you ask.",
     },
     {
-        question: "Which Meta Quest headsets does CuriosityXR support?",
+        question: "Which devices does CuriosityXR support?",
         answer:
-            "CuriosityXR runs on Meta Quest 3, Meta Quest 3S, Meta Quest 2 and Meta Quest Pro. It supports both hand tracking and Touch controllers, and uses passthrough mixed reality on Quest 3 and Quest 3S so 3D models appear in your actual room.",
+            "CuriosityXR supports Meta Quest 3, 3S, 2 and Pro, plus Meta VR glasses.",
     },
     {
         question: "How is CuriosityXR different from ChatGPT?",

@@ -25,12 +25,9 @@ const Features = () => {
                         Speak any question out loud. Your AI teacher responds in mixed reality with
                         interactive 3D models you can inspect, scale, and pull apart in real time.
                     </p>
-                    <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs font-medium text-neutral-400">
-                        <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">Meta Quest 3</span>
-                        <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">Quest 3S</span>
-                        <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">Quest 2</span>
-                        <span className="px-3 py-1 rounded-full bg-white/5 border border-white/10">Quest Pro</span>
-                    </div>
+                    <p className="mt-4 text-sm text-neutral-400">
+                        For Meta Quest &amp; Meta VR glasses
+                    </p>
                 </AnimationContainer>
             </div>
 

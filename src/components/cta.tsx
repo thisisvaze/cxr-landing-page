@@ -66,7 +66,7 @@ const CTA = () => {
                                 </Button>
                             </Link>
                             <p className="text-xs sm:text-sm text-neutral-400 font-medium mt-3">
-                                Available on Meta Quest 3, 3S, 2 and Pro
+                                For Meta Quest &amp; Meta VR glasses
                             </p>
                         </div>
                     </AnimationContainer>
