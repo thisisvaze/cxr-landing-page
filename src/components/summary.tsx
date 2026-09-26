@@ -58,17 +58,17 @@ const Summary = () => {
 
                         <AnimationContainer animation="fadeUp" delay={1.2} className="w-full max-w-2xl mt-12 sm:mt-14">
                             <MagicCard 
-                                className="w-full aspect-video p-0 overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
+                                className="w-full aspect-[3/2] p-0 overflow-hidden rounded-2xl border border-white/10 shadow-2xl"
                                 gradientSize={300}
                                 gradientFrom="#9E7AFF"
                                 gradientTo="#FE8BBB"
                                 gradientOpacity={0.9}
                             >
                                 <Image
-                                    src="/images/mission_header.png"
+                                    src="/images/illustrations/mixed-reality-learning.png"
                                     alt="A student wearing a mixed reality headset learning plant cell biology from a 3D model with the CuriosityXR AI teacher"
-                                    width={1200}
-                                    height={1200}
+                                    width={1536}
+                                    height={1024}
                                     className="w-full h-full object-cover"
                                 />
                             </MagicCard>
@@ -77,11 +77,7 @@ const Summary = () => {
                             <div className="flex items-center mt-6">
                                 <div className="rounded-full px-5 py-2.5 bg-neutral-900/90 border border-white/10 backdrop-blur-md shadow-lg flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                                     {HIGHLIGHTS.map((item, index) => (
-                                        <AnimationContainer
-                                            key={index}
-                                            animation="fadeRight"
-                                            delay={0.7 + (index * 0.1)}
-                                        >
+                                        <div key={item.label}>
                                             <div className="flex items-center gap-2">
                                                 <Image
                                                     src={item.icon}
@@ -97,7 +93,7 @@ const Summary = () => {
                                                     <div className="h-3.5 w-px bg-neutral-700 ml-2 hidden sm:block"></div>
                                                 )}
                                             </div>
-                                        </AnimationContainer>
+                                        </div>
                                     ))}
                                 </div>
                             </div>

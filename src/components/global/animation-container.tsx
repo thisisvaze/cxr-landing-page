@@ -1,33 +1,14 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { type ReactNode } from "react";
 
 interface AnimationContainerProps {
     children: ReactNode;
     className?: string;
-    animation?: "fadeUp" | "fadeDown" | "fadeLeft" | "fadeRight" | "scaleUp" | "fadeIn";
+    animation?: "fadeUp" | "fadeIn";
     delay?: number;
 }
-
-const getAnimationVariants = (animation: string) => {
-    switch (animation) {
-        case "fadeIn":
-            return { opacity: 0 };
-        case "fadeUp":
-            return { opacity: 0, y: 20 };
-        case "fadeDown":
-            return { opacity: 0, y: -20 };
-        case "fadeLeft":
-            return { opacity: 0, x: -20 };
-        case "fadeRight":
-            return { opacity: 0, x: 20 };
-        case "scaleUp":
-            return { opacity: 0, scale: 0.95 };
-        default:
-            return { opacity: 0, y: 20 };
-    }
-};
 
 const AnimationContainer = ({
     children,
@@ -35,21 +16,18 @@ const AnimationContainer = ({
     animation = "fadeUp",
     delay = 0,
 }: AnimationContainerProps) => {
+    const reduceMotion = useReducedMotion();
+
     return (
         <motion.div
-            className={className}
-            initial={getAnimationVariants(animation)}
-            whileInView={{
-                opacity: 1,
-                y: 0,
-                x: 0,
-                scale: 1,
-            }}
-            viewport={{ once: true}}
+            className={`reveal ${className ?? ""}`}
+            initial={reduceMotion ? false : { opacity: 0, y: animation === "fadeIn" ? 0 : 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{
-                duration: 0.5,
-                delay: delay * 0.2,
-                ease: "easeInOut"
+                duration: reduceMotion ? 0 : 0.55,
+                delay: reduceMotion ? 0 : Math.min(delay * 0.2, 0.16),
+                ease: [0.22, 1, 0.36, 1],
             }}
         >
             {children}
@@ -57,4 +35,4 @@ const AnimationContainer = ({
     );
 };
 
-export default AnimationContainer; 
+export default AnimationContainer;

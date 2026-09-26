@@ -36,11 +36,7 @@ const Testimonials = () => {
 
                     <Marquee className="[--gap:1.5rem]" pauseOnHover>
                         {TESTIMONIALS.map((testimonial, index) => (
-                            <AnimationContainer
-                                key={index}
-                                animation="fadeUp"
-                                delay={0.6 + (index * 0.1)}
-                            >
+                            <div key={index}>
                                 <div
                                     className="flex-shrink-0 w-[300px] sm:w-[360px] md:w-[400px] rounded-2xl bg-neutral-900/80 border border-white/10 hover:border-white/20 transition-all shadow-lg backdrop-blur-xl p-6 sm:p-7"
                                 >
@@ -78,7 +74,7 @@ const Testimonials = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </AnimationContainer>
+                            </div>
                         ))}
                     </Marquee>
                 </div>

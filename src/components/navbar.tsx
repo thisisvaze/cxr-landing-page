@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants";
 import { useClickOutside } from "@/hooks";
-import { cn } from "@/lib";
 import GlassSurface from "@/components/ui/GlassSurface";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { MenuIcon, XIcon } from "lucide-react";
@@ -65,23 +64,19 @@ const Navbar = () => {
                     contentClassName="!p-0 w-full"
                 >
                     <Wrapper className="flex items-center justify-between lg:px-4 py-2 w-full">
-                        <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.2 }}
-                        >
+                        <AnimationContainer animation="fadeIn">
                             <Link href="/" className="flex items-center gap-2">
                                 <Icons.logo className="w-max h-5 !my-2" />
                                 <span className="text-base font-medium ml-2">CuriosityXR</span>
                             </Link>
-                        </motion.div>
+                        </AnimationContainer>
 
                         <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-2 text-sm text-muted-foreground font-medium pointer-events-none">
                             <AnimatePresence>
                                 {NAV_LINKS.map((link, index) => (
                                     <AnimationContainer
                                         key={index}
-                                        animation="fadeDown"
+                                        animation="fadeIn"
                                         delay={0.1 * index}
                                     >
                                         <div className="relative pointer-events-auto">
@@ -94,7 +89,7 @@ const Navbar = () => {
                             </AnimatePresence>
                         </div>
 
-                        <AnimationContainer animation="fadeLeft" delay={0.1}>
+                        <AnimationContainer animation="fadeIn" delay={0.1}>
                             <div className="flex items-center gap-x-4">
                                 <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
                                     <Button size="sm" className="magic-button">
@@ -130,13 +125,13 @@ const Navbar = () => {
                 >
                     <Wrapper className="flex items-center justify-between px-4 py-3 w-full">
                         <div className="flex items-center justify-between gap-x-4 w-full">
-                            <AnimationContainer animation="fadeRight" delay={0.1}>
+                            <AnimationContainer animation="fadeIn" delay={0.1}>
                                 <Link href="/" className="flex items-center gap-2">
                                     <span className="text-base font-medium ml-2">CuriosityXR</span>
                                 </Link>
                             </AnimationContainer>
 
-                            <AnimationContainer animation="fadeLeft" delay={0.1}>
+                            <AnimationContainer animation="fadeIn" delay={0.1}>
                                 <div className="flex items-center justify-center gap-x-4">
                                     <Button size="sm" className="magic-button">
                                         <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" className="flex items-center">
@@ -169,10 +164,10 @@ const Navbar = () => {
                             exit={{ opacity: 0 }}
                             className="flex rounded-b-xl absolute top-16 bg-neutral-950 inset-x-0 z-50 flex-col items-start justify-start gap-2 w-full px-4 py-8 shadow-xl shadow-neutral-950"
                         >
-                            {NAV_LINKS.map((navItem: any, idx: number) => (
+                            {NAV_LINKS.map((navItem, idx) => (
                                 <AnimationContainer
                                     key={`link=${idx}`}
-                                    animation="fadeRight"
+                                    animation="fadeIn"
                                     delay={0.1 * (idx + 1)}
                                     className="w-full"
                                 >

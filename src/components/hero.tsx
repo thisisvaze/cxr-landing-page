@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { useReducedMotion } from "motion/react";
 import Link from "next/link";
 import AnimationContainer from "./global/animation-container";
 import Images from "./global/images";
@@ -11,6 +11,7 @@ import HeroBadges from "./hero-badges";
 import { useState } from "react";
 
 const Hero = () => {
+    const reduceMotion = useReducedMotion();
     const [isHovering, setIsHovering] = useState(false);
     
     const companies = [
@@ -62,10 +63,10 @@ const Hero = () => {
                         onMouseLeave={() => setIsHovering(false)}
                     >
                         <video
-                            src="/images/v.webm"
+                            src={reduceMotion ? undefined : "/images/v.webm"}
                             aria-label="CuriosityXR on Meta Quest: a spoken question turns into an interactive 3D model in mixed reality"
                             poster="/images/v-poster.webp"
-                            autoPlay
+                            autoPlay={!reduceMotion}
                             loop
                             muted
                             playsInline
@@ -104,7 +105,7 @@ const Hero = () => {
                                 Supported by
                             </p>
                             <div className="w-full relative max-w-[calc(100vw-2rem)] lg:max-w-lg">
-                                <Marquee className="[--duration:40s] select-none [--gap:2rem]">
+                                <Marquee pauseOnHover className="[--duration:40s] select-none [--gap:2rem]">
                                     {[...Array(10)].map((_, index) => (
                                         <div key={index} className="flex items-center justify-center text-muted-foreground h-16">
                                             {companies[index % companies.length]({ className: "w-auto h-5" })}

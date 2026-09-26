@@ -11,15 +11,15 @@ const CTA = () => {
             <div className="flex flex-col items-center text-center relative gap-4 py-16 lg:py-24 overflow-hidden z-0">
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#101010] w-full h-1/2 z-10 pointer-events-none"></div>
 
-                <AnimationContainer animation="scaleUp" delay={0.2} className="w-full mx-auto pointer-events-none">
+                <AnimationContainer animation="fadeIn" delay={0.2} className="w-full mx-auto pointer-events-none">
                     <div className="absolute -top-1/2 inset-x-0 mx-auto bg-primary/40 rounded-full size-1/2 blur-[4rem] lg:blur-[8rem]"></div>
                 </AnimationContainer>
 
-                <AnimationContainer animation="scaleUp" delay={0.3} className="pointer-events-none">
+                <AnimationContainer animation="fadeIn" delay={0.3} className="pointer-events-none">
                     <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
                 </AnimationContainer>
 
-                <AnimationContainer animation="scaleUp" delay={0.2}>
+                <AnimationContainer animation="fadeIn" delay={0.2}>
                     <FlickeringGrid
                         className="absolute inset-0 -z-10 h-full w-[120%] pointer-events-none"
                         squareSize={4}

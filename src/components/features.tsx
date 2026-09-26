@@ -57,8 +57,8 @@ const Features = () => {
                                         src={FEATURES[0].image}
                                         alt={FEATURES[0].alt}
                                         fill
-                                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                                     />
                                 </div>
                             </div>
@@ -85,8 +85,8 @@ const Features = () => {
                                         src={FEATURES[1].image}
                                         alt={FEATURES[1].alt}
                                         fill
-                                        className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                                     />
                                 </div>
                             </div>
@@ -113,8 +113,8 @@ const Features = () => {
                                         src={FEATURES[2].image}
                                         alt={FEATURES[2].alt}
                                         fill
-                                        className="object-contain object-bottom p-2 transition-transform duration-300 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
                                     />
                                 </div>
                             </div>
@@ -144,7 +144,7 @@ const Features = () => {
                                         src={FEATURES[3].image}
                                         alt={FEATURES[3].alt}
                                         fill
-                                        className="object-contain object-bottom p-2 transition-transform duration-300 group-hover:scale-105"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
                                         sizes="(max-width: 1024px) 100vw, 60vw"
                                     />
                                 </div>
@@ -172,7 +172,7 @@ const Features = () => {
                                         src={FEATURES[4].image}
                                         alt={FEATURES[4].alt}
                                         fill
-                                        className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
                                         sizes="(max-width: 1024px) 100vw, 40vw"
                                     />
                                 </div>
