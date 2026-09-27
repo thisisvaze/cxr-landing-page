@@ -18,35 +18,32 @@ const Hero = () => {
         Images.comp1,
         Images.comp2,
         Images.comp3,
+        Images.comp4,
+        Images.comp5,
     ];
 
-    const trailerUrl = "https://www.youtube.com/watch?v=um-3guz9FO0";
+    const trailerUrl = "https://www.youtube.com/watch?v=um-3guz9FO0&t=9s"; // skip the stock-footage intro
 
     return (
-        <Wrapper className="pt-32 lg:pt-40 relative min-h-screen w-full flex-1">
+        <Wrapper className="pt-32 relative min-h-screen w-full flex-1">
             <div className="flex flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-6 max-w-3xl">
                     <AnimationContainer animation="fadeUp" delay={0.2} className="flex justify-center w-full mb-2 md:mb-4">
                         <HeroBadges />
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-medium tracking-tight text-white leading-[1.1]">
+                        <h1 className="type-display">
                             Learn with AI & <br className="hidden sm:inline" />
                             1M+ 3D models
                         </h1>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <p className="text-base sm:text-lg text-neutral-300 max-w-xl mx-auto leading-relaxed">
-                            CuriosityXR is the AI learning app for Meta Quest. Ask
-                            anything out loud and your AI teacher answers in mixed
-                            reality, with a 3D model you can pick up and hold.
+                        <p className="type-lead max-w-2xl mx-auto text-balance">
+                            Ask anything out loud on Meta Quest. Your AI teacher answers in 3D.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>
                         <div className="flex flex-wrap items-center justify-center gap-3.5">
-                            <Link href={trailerUrl} target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline" className="rounded-full px-6">Watch Trailer</Button>
-                            </Link>
                             <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
                                 <Button className="magic-button rounded-full px-6">
                                     <span className="relative z-10">Get on Meta Quest</span>
@@ -56,9 +53,9 @@ const Hero = () => {
                     </AnimationContainer>
                     
                 </div>
-                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-12 sm:mt-16 w-full flex justify-center">
+                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-10 w-full flex justify-center">
                     <div 
-                        className="relative w-full max-w-[800px] group"
+                        className="relative w-full max-w-[1040px] group"
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
                     >

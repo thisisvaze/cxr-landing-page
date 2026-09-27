@@ -38,6 +38,7 @@ const SECTIONS = [
     },
     {
         heading: "What that changes in practice",
+        image: { src: "/images/blog/volcano-classroom.jpg", alt: "Mixed reality view of a classroom: the AI teacher avatar stands beside a volcano cross-section model on a student desk as the learner turns it" },
         body: [
             "A learner using a lesson-based app works through what is there. A learner using CuriosityXR starts somewhere and follows the thread.",
         ],
@@ -71,6 +72,7 @@ const SECTIONS = [
     },
     {
         heading: "Subjects people actually explore",
+        image: { src: "/images/blog/dna-kitchen.jpg", alt: "Mixed reality view of a kitchen: a glowing DNA double helix floats above the kitchen island next to the AI teacher avatar" },
         body: [
             "Anatomy, astronomy, biology, geology, geography and history come up most. The common starting points are the human heart, the solar system, volcanoes, DNA and world maps.",
             "Because each answer is generated on demand, the practical range is far wider than any published subject list, and the interesting sessions are usually the ones that wander off it.",

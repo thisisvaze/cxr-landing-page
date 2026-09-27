@@ -14,14 +14,14 @@ const Features = () => {
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.2}>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-heading font-medium tracking-tight text-white leading-tight">
-                        Learn with 1M+ 3D Models <br className="hidden sm:inline" />
-                        & AI Teacher
+                    <h2 className="type-heading">
+                        Don’t just learn it. <br className="hidden sm:inline" />
+                        See it in your space.
                     </h2>
                 </AnimationContainer>
 
                 <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <p className="text-base sm:text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
+                    <p className="type-lead max-w-2xl mx-auto">
                         Speak any question out loud. Your AI teacher responds in mixed reality with
                         interactive 3D models you can inspect, scale, and pull apart in real time.
                     </p>
@@ -31,152 +31,60 @@ const Features = () => {
                 </AnimationContainer>
             </div>
 
-            <div className="flex flex-col gap-6 px-1 md:px-0">
-                {/* Top Row: Ask Anything | Spatial Intelligence | Natural Interactions */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* 1. Ask Anything */}
-                    <AnimationContainer animation="fadeUp" delay={0.2} className="w-full">
-                        <MagicCard className="h-[380px] sm:h-[400px] rounded-2xl border border-white/10">
-                            <div className="flex flex-col justify-between h-full w-full relative">
-                                <div className="p-6 sm:p-7 z-10">
-                                    <h3 className="text-xl sm:text-2xl font-heading font-medium text-white tracking-tight">
-                                        {FEATURES[0].title}
-                                    </h3>
-                                    <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed mt-2">
-                                        {FEATURES[0].description}
-                                    </p>
-                                </div>
-                                <div className="relative w-full h-[220px] sm:h-[240px] flex items-center justify-center p-2 mt-auto">
-                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="size-40 rounded-full bg-violet-600/10 blur-3xl" />
-                                    </div>
-                                    <Image
-                                        src={FEATURES[0].image}
-                                        alt={FEATURES[0].alt}
-                                        fill
-                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
-                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                                    />
-                                </div>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-[1fr_1.2fr_1fr]">
+                <AnimationContainer animation="fadeUp" delay={0.2} className="min-w-0 sm:col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+                    <MagicCard className="h-full rounded-2xl border border-violet-400/40">
+                        <div className="flex h-full flex-col items-center bg-gradient-to-b from-violet-500/15 via-violet-500/5 to-transparent text-center">
+                            <div className="px-6 pt-9 sm:pt-12">
+                                <h3 className="font-heading font-medium tracking-tight text-white">
+                                    <span className="block text-8xl leading-none tracking-tighter text-violet-200">1M+</span>
+                                    <span className="mt-3 block text-3xl">3D Models</span>
+                                </h3>
+                                <p className="mx-auto mt-4 max-w-xs text-base leading-relaxed text-neutral-300">
+                                    {FEATURES[4].description}
+                                </p>
                             </div>
-                        </MagicCard>
-                    </AnimationContainer>
+                            <div className="relative my-5 min-h-[240px] w-full flex-1 sm:min-h-[280px]">
+                                <Image
+                                    src={FEATURES[4].image}
+                                    alt={FEATURES[4].alt}
+                                    fill
+                                    className="object-contain p-3 motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
+                                    sizes="(max-width: 1023px) 90vw, 400px"
+                                />
+                            </div>
+                            <p className="px-6 pb-8 text-sm leading-relaxed text-violet-200/80">
+                                From tiny cells to entire solar systems.
+                            </p>
+                        </div>
+                    </MagicCard>
+                </AnimationContainer>
 
-                    {/* 2. Spatial Intelligence */}
-                    <AnimationContainer animation="fadeUp" delay={0.3} className="w-full">
-                        <MagicCard className="h-[380px] sm:h-[400px] rounded-2xl border border-white/10">
-                            <div className="flex flex-col justify-between h-full w-full relative">
-                                <div className="p-6 sm:p-7 z-10">
-                                    <h3 className="text-xl sm:text-2xl font-heading font-medium text-white tracking-tight">
-                                        {FEATURES[1].title}
+                {[FEATURES[0], FEATURES[2], FEATURES[1], FEATURES[3]].map((feature) => (
+                    <AnimationContainer key={feature.title} animation="fadeUp" delay={0.3} className="min-w-0">
+                        <MagicCard className="h-full rounded-2xl border border-white/10">
+                            <div className="flex h-full flex-col">
+                                <div className="p-6 pb-3">
+                                    <h3 className="text-xl font-heading font-medium tracking-tight text-white">
+                                        {feature.title}
                                     </h3>
-                                    <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed mt-2">
-                                        {FEATURES[1].description}
+                                    <p className="mt-2 text-sm sm:text-[15px] leading-relaxed text-neutral-400">
+                                        {feature.description}
                                     </p>
                                 </div>
-                                <div className="relative w-full h-[220px] sm:h-[240px] flex items-center justify-center p-4 mt-auto">
-                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="size-44 rounded-full bg-purple-600/15 blur-3xl" />
-                                    </div>
+                                <div className={`relative mt-auto h-[240px] shrink-0 ${feature.flip ? "-scale-x-100" : ""}`}>
                                     <Image
-                                        src={FEATURES[1].image}
-                                        alt={FEATURES[1].alt}
+                                        src={feature.image}
+                                        alt={feature.alt}
                                         fill
-                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
-                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
+                                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 320px"
                                     />
                                 </div>
                             </div>
                         </MagicCard>
                     </AnimationContainer>
-
-                    {/* 3. Natural Interactions */}
-                    <AnimationContainer animation="fadeUp" delay={0.4} className="w-full md:col-span-2 lg:col-span-1">
-                        <MagicCard className="h-[380px] sm:h-[400px] rounded-2xl border border-white/10">
-                            <div className="flex flex-col justify-between h-full w-full relative">
-                                <div className="p-6 sm:p-7 z-10">
-                                    <h3 className="text-xl sm:text-2xl font-heading font-medium text-white tracking-tight">
-                                        {FEATURES[2].title}
-                                    </h3>
-                                    <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed mt-2">
-                                        {FEATURES[2].description}
-                                    </p>
-                                </div>
-                                <div className="relative w-full h-[220px] sm:h-[240px] flex items-end justify-center p-2 mt-auto">
-                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="size-40 rounded-full bg-cyan-600/15 blur-3xl" />
-                                    </div>
-                                    <Image
-                                        src={FEATURES[2].image}
-                                        alt={FEATURES[2].alt}
-                                        fill
-                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
-                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
-                                    />
-                                </div>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-                </div>
-
-                {/* Bottom Row: Build your learning journey (3 col) | 1M+ 3D Models (2 col) */}
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-                    {/* 4. Build Your Learning Journey */}
-                    <AnimationContainer animation="fadeUp" delay={0.5} className="lg:col-span-3 w-full">
-                        <MagicCard className="h-[380px] sm:h-[420px] rounded-2xl border border-white/10">
-                            <div className="flex flex-col justify-between h-full w-full relative">
-                                <div className="p-6 sm:p-7 z-10">
-                                    <h3 className="text-xl sm:text-2xl font-heading font-medium text-white tracking-tight">
-                                        {FEATURES[3].title}
-                                    </h3>
-                                    <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed mt-2 max-w-lg">
-                                        {FEATURES[3].description}
-                                    </p>
-                                </div>
-                                <div className="relative w-full h-[220px] sm:h-[280px] flex items-end justify-center p-2 mt-auto">
-                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="size-52 rounded-full bg-cyan-600/10 blur-3xl" />
-                                    </div>
-                                    <Image
-                                        src={FEATURES[3].image}
-                                        alt={FEATURES[3].alt}
-                                        fill
-                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
-                                        sizes="(max-width: 1024px) 100vw, 60vw"
-                                    />
-                                </div>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-
-                    {/* 5. 1M+ 3D Models */}
-                    <AnimationContainer animation="fadeUp" delay={0.6} className="lg:col-span-2 w-full">
-                        <MagicCard className="h-[380px] sm:h-[420px] rounded-2xl border border-white/10">
-                            <div className="flex flex-col justify-between h-full w-full relative">
-                                <div className="p-6 sm:p-7 z-10">
-                                    <h3 className="text-xl sm:text-2xl font-heading font-medium text-white tracking-tight">
-                                        {FEATURES[4].title}
-                                    </h3>
-                                    <p className="text-sm sm:text-base text-neutral-400 font-normal leading-relaxed mt-2">
-                                        {FEATURES[4].description}
-                                    </p>
-                                </div>
-                                <div className="relative w-full h-[220px] sm:h-[280px] flex items-center justify-center p-3 mt-auto">
-                                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                        <div className="size-48 rounded-full bg-amber-500/10 blur-3xl" />
-                                    </div>
-                                    <Image
-                                        src={FEATURES[4].image}
-                                        alt={FEATURES[4].alt}
-                                        fill
-                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:ease-out motion-safe:group-hover:scale-[1.02]"
-                                        sizes="(max-width: 1024px) 100vw, 40vw"
-                                    />
-                                </div>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-                </div>
+                ))}
             </div>
         </Wrapper>
     );

@@ -5,6 +5,7 @@ import { FAQS } from "@/constants";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/utils";
 import Features from "@/components/features";
 import Hero from "@/components/hero";
+import Endorsements from "@/components/endorsements";
 import Testimonials from "@/components/testimonials";
 import Summary from "@/components/summary";
 const HomePage = () => {
@@ -25,7 +26,7 @@ const HomePage = () => {
                 <Summary />
             </section>
 
-            <section className="w-full">
+            <section className="w-full scroll-mt-24" id="features">
                 <Features />
             </section>
 
@@ -35,10 +36,14 @@ const HomePage = () => {
             </section> */}
 
             <section className="w-full">
+                <Endorsements />
+            </section>
+
+            <section className="w-full">
                 <Testimonials />
             </section>
 
-            <section className="w-full" id="faq">
+            <section className="w-full scroll-mt-24" id="faq">
                 <FAQ />
             </section>
 

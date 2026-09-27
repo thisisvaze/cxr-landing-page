@@ -104,12 +104,17 @@ const config = {
 					from: { transform: "translateY(0)" },
 					to: { transform: "translateY(calc(-100% - var(--gap)))" },
 				},
+				speak: {
+					"0%, 100%": { transform: "scaleY(0.35)" },
+					"50%": { transform: "scaleY(1)" },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				marquee: "marquee var(--duration) linear infinite",
 				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
+				speak: "speak 0.7s ease-in-out infinite",
 			},
 			spacing: {
 				"1/8": "12.5%",

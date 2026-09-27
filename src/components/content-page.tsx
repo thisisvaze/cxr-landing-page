@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import AnimationContainer from "./global/animation-container";
 import Wrapper from "./global/wrapper";
@@ -9,6 +10,7 @@ export interface ContentSection {
     heading: string;
     body: string[];
     bullets?: string[];
+    image?: { src: string; alt: string };
 }
 
 interface Props {
@@ -29,13 +31,13 @@ const ContentPage = ({ badge, title, lede, sections, children }: Props) => {
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <h1 className="text-4xl font-heading lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-neutral-100">
+                        <h1 className="type-heading">
                             {title}
                         </h1>
                     </AnimationContainer>
 
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <p className="text-base md:text-lg text-muted-foreground">
+                        <p className="type-lead">
                             {lede}
                         </p>
                     </AnimationContainer>
@@ -87,6 +89,16 @@ const ContentPage = ({ badge, title, lede, sections, children }: Props) => {
                                             <li key={bullet.slice(0, 40)}>{bullet}</li>
                                         ))}
                                     </ul>
+                                )}
+                                {section.image && (
+                                    <Image
+                                        src={section.image.src}
+                                        alt={section.image.alt}
+                                        width={1440}
+                                        height={803}
+                                        sizes="(max-width: 768px) 100vw, 768px"
+                                        className="mt-4 h-auto w-full rounded-2xl border border-white/10"
+                                    />
                                 )}
                             </article>
                         </AnimationContainer>

@@ -26,6 +26,7 @@ export const PROFILES = {
     discord: "https://discord.gg/aF2cRG6k62",
     youtubeTrailer: `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`,
     researchPaper: "https://ieeexplore.ieee.org/document/10445534/",
+    podcast: "https://cfrehlich.podbean.com/e/episode-139-curiosity-unleashed-how-curiosityxr-is-redefining-learning-in-mixed-reality/",
 } as const;
 
 /**

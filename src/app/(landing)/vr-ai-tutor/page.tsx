@@ -30,6 +30,7 @@ export const metadata = buildMetadata({
 const SECTIONS = [
     {
         heading: "What an AI tutor in VR actually does",
+        image: { src: "/images/blog/heart-bedroom.jpg", alt: "Mixed reality view of a child's bedroom: the AI teacher avatar explains a floating anatomical heart as the learner reaches for it" },
         body: [
             "An AI tutor in VR replaces the two things a flat chatbot cannot give you: scale and presence. Instead of reading an explanation, you stand next to the thing being explained. CuriosityXR runs on Meta Quest, listens to a spoken question, and answers by placing an interactive 3D model in the room with you.",
             "Ask about the human heart and a heart appears at life size, beating, ready to be pulled apart. Ask what the left ventricle does and the tutor answers while the model is still in your hands. The conversation and the object are in the same place, which is the part a screen cannot reproduce.",
@@ -49,6 +50,7 @@ const SECTIONS = [
     },
     {
         heading: "Why a VR AI tutor beats a text AI tutor",
+        image: { src: "/images/blog/saturn-study.jpg", alt: "Mixed reality view of a home study at night: the AI teacher avatar stands beside a model of Saturn floating over the desk while the learner points at its rings" },
         body: [
             "Text-based AI tutors are good at explanation and bad at demonstration. They can tell you a mitochondrion is the powerhouse of the cell; they cannot show you one at a scale where the phrase means anything.",
             "Spatial answers also make a difference to what sticks. Walking around a model, changing its size and taking it apart are physical acts, and they engage a kind of attention that reading does not. This is the whole reason CuriosityXR was built in a headset rather than as another chat window.",

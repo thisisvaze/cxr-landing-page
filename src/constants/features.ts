@@ -1,17 +1,18 @@
 export const FEATURES = [
     {
         title: "Ask Anything",
-        description: "Endless exploration with conversational spatial AI.",
-        image: "/images/illustrations/ask-anything.png",
-        alt: "Asking the CuriosityXR AI teacher a question out loud on a Meta Quest headset",
+        description: "Ask out loud. Your AI teacher brings the answer to life in 3D.",
+        image: "/images/illustrations/ask-anything-solar-system.png",
+        alt: "A learner in a Meta Quest headset asks about the solar system while the AI teacher points out the planets in 3D",
         size: "large",
     },
     {
-        title: "Spatial Intelligence",
-        description: "Designed natively for Meta Quest passthrough.",
-        image: "/images/illustrations/spatial-intelligence.png",
-        alt: "CuriosityXR spatial intelligence for Meta Quest mixed reality",
+        title: "Learn in Your Space",
+        description: "Bring lessons into your room and explore them alongside the real world.",
+        image: "/images/illustrations/learn-in-your-space-plant-cell.png",
+        alt: "A learner in a Meta Quest headset explores a 3D plant cell rising from a real houseplant, with the AI teacher beside it",
         size: "small",
+        flip: true, // mirrored so it doesn't echo "Ask Anything" directly above it
     },
     {
         title: "Natural Interactions",
@@ -21,15 +22,15 @@ export const FEATURES = [
         size: "large",
     },
     {
-        title: "Build Your Learning Journey",
-        description: "Create your own learning adventure driven by curiosity.",
+        title: "Follow Your Curiosity",
+        description: "Keep asking, connect ideas, and take each lesson in your own direction.",
         image: "/images/illustrations/learning-journey.png",
         alt: "A self-directed learning journey built from a learner's own questions in CuriosityXR",
         size: "small",
     },
     {
         title: "1M+ 3D Models",
-        description: "Ask for any model and interact with it in your room.",
+        description: "Explore a world of models you can inspect, resize, and bring into your room.",
         image: "/images/illustrations/model-library.png",
         alt: "CuriosityXR's library of over 1 million 3D models for VR and AR learning",
         size: "medium",
