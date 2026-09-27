@@ -37,8 +37,6 @@ const graph = {
             sameAs: [
                 PROFILES.metaStore,
                 PROFILES.productHunt,
-                PROFILES.linkedin,
-                PROFILES.x,
                 PROFILES.discord,
             ],
             founder: { "@id": `${SITE_URL}/#founder` },

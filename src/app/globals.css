@@ -98,10 +98,6 @@ image {
   font-family: var(--font-syne) !important;
 }
 
-.font-architects-daughter {
-  font-family: var(--font-architects-daughter) !important;
-}
-
 @keyframes glow {
   0% {
     box-shadow: 0 0 1rem -0.25rem #4f46e5;
@@ -115,9 +111,26 @@ image {
 }
 
 @layer components {
+  /* Type scale, tuned here and nowhere else. Fluid sizes; line-height set once so breakpoints can't override it. */
+  .type-display { /* 36 -> 60px: hero h1, closing CTA */
+    @apply font-heading font-medium tracking-tight text-white;
+    font-size: clamp(2.25rem, 1.4rem + 3.4vw, 3.75rem);
+    line-height: 1.05;
+  }
+  .type-heading { /* 30 -> 48px: section h2s, content-page h1 */
+    @apply font-heading font-medium tracking-tight text-white;
+    font-size: clamp(1.875rem, 1.2rem + 2.6vw, 3rem);
+    line-height: 1.1;
+  }
+  .type-lead { /* 16 -> 18px: paragraph under a heading */
+    @apply text-neutral-300;
+    font-size: clamp(1rem, 0.9rem + 0.4vw, 1.125rem);
+    line-height: 1.6;
+  }
+
   .magic-button {
-    @apply relative bg-primary text-white transition-all duration-300 ease-in-out;
-    border-radius: 8px;
+    @apply relative bg-primary text-white transition-all duration-300 ease-in-out rounded-full;
+    border-radius: 9999px;
     &:hover {
       @apply bg-primary/80;
       box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
@@ -130,7 +143,7 @@ image {
       left: 0;
       right: 0;
       bottom: 0;
-      border-radius: 8px;
+      border-radius: 9999px;
       background: linear-gradient(45deg, #4f46e5, #3b82f6, #2563eb);
       z-index: -1;
       opacity: 0;
@@ -148,5 +161,51 @@ image {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Progressive blur behind the fixed navbar (ported from the ViddyScribe site).
+   Each span stacks a stronger backdrop blur, masked to a feathered band that
+   slides down the strip; navbar.tsx builds the per-layer blur and mask. */
+.nav-progressive-blur > span {
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(var(--nav-blur));
+  backdrop-filter: blur(var(--nav-blur));
+  -webkit-mask-image: var(--nav-mask);
+  mask-image: var(--nav-mask);
+}
+
+/* Tint that fades out with the blur, in the page's #101010. */
+.nav-progressive-blur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgb(16 16 16 / 0.80) 0%,
+      rgb(16 16 16 / 0.77) 28%,
+      rgb(16 16 16 / 0.62) 50%,
+      rgb(16 16 16 / 0.38) 68%,
+      rgb(16 16 16 / 0.16) 84%,
+      rgb(16 16 16 / 0.04) 94%,
+      transparent 100%);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .nav-progressive-blur > span {
+    --nav-blur: 0px !important;
   }
 }

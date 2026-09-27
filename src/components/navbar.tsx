@@ -4,207 +4,139 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants";
 import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
-import Image from "next/image";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { MenuIcon, XIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { RefObject, useRef, useState } from "react";
-import AnimationContainer from "./global/animation-container";
-import Icons from "./global/icons";
-import Wrapper from "./global/wrapper";
+import { usePathname } from "next/navigation";
+import { CSSProperties, useState } from "react";
+
+// Progressive blur ramp (same build as the ViddyScribe navbar): each layer is a
+// feathered band sliding down the strip, with blur rising a fixed step per layer.
+// Feathered edges + even steps keep the ramp from reading as stripes.
+const BLUR_LAYER_COUNT = 8;
+const BLUR_STEP_PX = 1.5;
+const BLUR_SEGMENT = 100 / (BLUR_LAYER_COUNT + 1);
+const BLUR_LAYERS = Array.from({ length: BLUR_LAYER_COUNT }, (_, index) => {
+    const [fadeIn, solidFrom, solidTo, fadeOut] = [index, index + 1, index + 2, index + 3]
+        .map((step) => (step * BLUR_SEGMENT).toFixed(2));
+    return {
+        blur: (index + 1) * BLUR_STEP_PX,
+        // Measured from the bottom, so the strongest blur sits under the nav row.
+        mask: `linear-gradient(to top, transparent ${fadeIn}%, #000 ${solidFrom}%, #000 ${solidTo}%, transparent ${fadeOut}%)`,
+    };
+});
 
 const Navbar = () => {
-
-    const ref = useRef<HTMLDivElement | null>(null);
+    const pathname = usePathname();
+    const isApiPage = pathname === "/learning-api";
+    const isActive = (link: (typeof NAV_LINKS)[number]) =>
+        (link.match ?? [link.link]).some((path) => pathname === path || pathname.startsWith(`${path}/`));
+    const ctaHref = isApiPage ? "#request-access" : "https://vr.meta.me/s/2Rgf0BFArrcy5sf";
+    const ctaLabel = isApiPage ? "Request API access" : "Get on Meta Quest";
     const [open, setOpen] = useState(false);
-    const [visible, setVisible] = useState<boolean>(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    const mobileMenuRef = useClickOutside(() => {
-        if (open) setOpen(false);
-    });
+    // Wraps the toggle too, so tapping X doesn't count as an outside click and reopen the menu.
+    const ref = useClickOutside(() => setOpen(false));
 
-    const { scrollY } = useScroll({
-        target: ref as RefObject<HTMLDivElement>,
-        offset: ["start start", "end start"],
-    });
-
-    useMotionValueEvent(scrollY, "change", (latest) => {
-        if (latest > 100) {
-            setVisible(true);
-        } else {
-            setVisible(false);
-        }
-    });
+    const { scrollY } = useScroll();
+    useMotionValueEvent(scrollY, "change", (latest) => setScrolled(latest > 8));
 
     return (
-        <header className="fixed w-full top-6 inset-x-0 z-50">
-            {/* Desktop */}
-            <motion.div
-                style={{
-                    width: "40%",
-                    minWidth: "800px",
-                }}
+        <header className="fixed inset-x-0 top-0 z-50">
+            <span
+                aria-hidden="true"
                 className={cn(
-                    "hidden lg:flex bg-transparent self-start items-center justify-between py-2 rounded-full relative z-[50] mx-auto border border-t-foreground/20 border-b-foreground/10 border-x-foreground/15",
-                    visible && "bg-background/60 backdrop-blur-md"
+                    "nav-progressive-blur pointer-events-none absolute inset-x-0 top-0 h-[calc(100%+2.5rem)] transition-opacity duration-300",
+                    scrolled || open ? "opacity-100" : "opacity-0",
                 )}
             >
-                <Wrapper className="flex items-center justify-between lg:px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2 }}
-                    >
-                        <Link href="/" className="flex items-center gap-2">
-                            <Icons.logo className="w-max h-5 !my-2" />
-                            <span className="text-base font-medium ml-2">CuriosityXR</span>
-                        {/* <Image 
-                            src="/images/cxr-logo.png" 
-                            alt="Logo" 
-                            width={150} 
-                            height={100}
-                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
-                            priority
-                        />   */}
+                {BLUR_LAYERS.map((layer) => (
+                    <span
+                        key={layer.blur}
+                        style={{ "--nav-blur": `${layer.blur}px`, "--nav-mask": layer.mask } as CSSProperties}
+                    />
+                ))}
+            </span>
 
-
+            <div ref={ref} className="relative">
+                <div className="relative mx-auto flex h-16 w-full items-center justify-between px-4 lg:max-w-screen-xl lg:px-20">
+                    <div className="flex items-center gap-6">
+                        <Link href="/" className="shrink-0">
+                            <Image src="/images/cxr-logo.png" alt="CuriosityXR" width={1079} height={274} priority className="h-8 w-auto" />
                         </Link>
-                    </motion.div>
 
-                    <div className="hidden lg:flex flex-row flex-1 absolute inset-0 items-center justify-center w-max mx-auto gap-x-2 text-sm text-muted-foreground font-medium">
-                        <AnimatePresence>
-                            {NAV_LINKS.map((link, index) => (
-                                <AnimationContainer
-                                    key={index}
-                                    animation="fadeDown"
-                                    delay={0.1 * index}
+                        <nav className="hidden items-center gap-1 text-sm font-medium text-neutral-400 lg:flex">
+                            {NAV_LINKS.map((link) => (
+                                <Link
+                                    key={link.link}
+                                    href={link.link}
+                                    target={link.target}
+                                    aria-current={isActive(link) ? "page" : undefined}
+                                    className={cn(
+                                        "rounded-full px-3.5 py-1.5 transition-colors hover:text-white",
+                                        isActive(link) && "text-white",
+                                    )}
                                 >
-                                    <div className="relative">
-                                        <Link href={link.link} target={link.target} className="hover:text-foreground transition-all duration-200 hover:bg-accent rounded-md px-4 py-2">
-                                            {link.name}
-                                        </Link>
-                                    </div>
-                                </AnimationContainer>
+                                    {link.name}
+                                    {link.teaser && <span aria-hidden="true" className="ml-1.5 inline-block size-1.5 animate-pulse rounded-full bg-violet-400 align-middle shadow-[0_0_8px_2px] shadow-violet-500/60" />}
+                                </Link>
                             ))}
-                        </AnimatePresence>
+                        </nav>
                     </div>
 
-                    <AnimationContainer animation="fadeLeft" delay={0.1}>
-                        <div className="flex items-center gap-x-4">
-                            <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank">
-                                <Button size="sm" className="magic-button">
-                                    <span className="relative z-10">Get on Meta Quest</span>
-                                    </Button>
+                    <div className="flex items-center gap-2">
+                        <Button asChild size="sm" className="magic-button">
+                            <Link href={ctaHref} target={isApiPage ? undefined : "_blank"} onClick={() => setOpen(false)}>
+                                <span className="relative z-10">{ctaLabel}</span>
                             </Link>
-                        </div>
-                    </AnimationContainer>
-                </Wrapper>
-            </motion.div>
-
-            {/* Mobile */}
-            <motion.div
-                animate={{
-                    borderTopLeftRadius: open ? "0.75rem" : "2rem",
-                    borderTopRightRadius: open ? "0.75rem" : "2rem",
-                    borderBottomLeftRadius: open ? "0" : "2rem",
-                    borderBottomRightRadius: open ? "0" : "2rem",
-                }}
-                transition={{
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 50,
-                }}
-                className={cn(
-                    "flex relative flex-col lg:hidden w-11/12 justify-between items-center mx-auto py-4 z-50 border",
-                    visible && "bg-neutral-950/80 backdrop-blur-md",
-                    open && "border-transparent"
-                )}
-            >
-                <Wrapper className="flex items-center justify-between lg:px-4">
-                    <div className="flex items-center justify-between gap-x-4 w-full">
-                        <AnimationContainer animation="fadeRight" delay={0.1}>
-                            <Link href="/" className="flex items-center gap-2">
-                            {/* <Icons.logo className="w-max h-6" /> */}
-                            <span className="text-base font-medium ml-2">CuriosityXR</span>
-                            </Link>
-                        </AnimationContainer>
-
-                        <AnimationContainer animation="fadeLeft" delay={0.1}>
-                            <div className="flex items-center justify-center gap-x-4">
-                                <Button size="sm" className="magic-button">
-                                    <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" className="flex items-center">
-                                        <span className="relative z-10">Get on Meta Quest</span>
-                                    </Link>
-                                </Button>
-                                {open ? (
-                                    <XIcon
-                                        className="text-black dark:text-white"
-                                        onClick={() => setOpen(!open)}
-                                    />
-                                ) : (
-                                    <MenuIcon
-                                        className="text-black dark:text-white"
-                                        onClick={() => setOpen(!open)}
-                                    />
-                                )}
-                            </div>
-                        </AnimationContainer>
+                        </Button>
+                        {NAV_LINKS.length > 0 && (
+                            <button
+                                type="button"
+                                aria-label={open ? "Close menu" : "Open menu"}
+                                aria-expanded={open}
+                                aria-controls="mobile-nav"
+                                onClick={() => setOpen((o) => !o)}
+                                className="grid size-9 place-items-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+                            >
+                                {open ? <XIcon className="size-5" /> : <MenuIcon className="size-5" />}
+                            </button>
+                        )}
                     </div>
-                </Wrapper>
+                </div>
 
                 <AnimatePresence>
                     {open && (
-                        <motion.div
-                            ref={mobileMenuRef}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            className="flex rounded-b-xl absolute top-16 bg-neutral-950 inset-x-0 z-50 flex-col items-start justify-start gap-2 w-full px-4 py-8 shadow-xl shadow-neutral-950"
+                        <motion.nav
+                            id="mobile-nav"
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2 }}
+                            className="mx-4 flex flex-col gap-1 rounded-2xl border border-white/10 bg-neutral-900/90 p-2 shadow-xl backdrop-blur-xl lg:hidden"
                         >
-                            {NAV_LINKS.map((navItem: any, idx: number) => (
-                                <AnimationContainer
-                                    key={`link=${idx}`}
-                                    animation="fadeRight"
-                                    delay={0.1 * (idx + 1)}
-                                    className="w-full"
+                            {NAV_LINKS.map((link) => (
+                                <Link
+                                    key={link.link}
+                                    href={link.link}
+                                    target={link.target}
+                                    onClick={() => setOpen(false)}
+                                    aria-current={isActive(link) ? "page" : undefined}
+                                    className={cn(
+                                        "rounded-xl px-4 py-3 text-neutral-400 transition-colors hover:bg-white/5 hover:text-white",
+                                        isActive(link) && "text-white",
+                                    )}
                                 >
-                                    <Link
-                                        href={navItem.link}
-                                        target={navItem.target}
-                                        onClick={() => setOpen(false)}
-                                        className="relative text-neutral-300 hover:bg-neutral-800 w-full px-4 py-2 rounded-lg"
-                                    >
-                                        <motion.span>{navItem.name}</motion.span>
-                                    </Link>
-                                </AnimationContainer>
+                                    {link.name}
+                                    {link.teaser && <span aria-hidden="true" className="ml-1.5 inline-block size-1.5 animate-pulse rounded-full bg-violet-400 align-middle shadow-[0_0_8px_2px] shadow-violet-500/60" />}
+                                </Link>
                             ))}
-                            {/* <AnimationContainer animation="fadeUp" delay={0.5} className="w-full">
-                                
-                                    <>
-                                        <Link href="/signin" className="w-full">
-                                            <Button
-                                                onClick={() => setOpen(false)}
-                                                variant="secondary"
-                                                className="block md:hidden w-full"
-                                            >
-                                                Login
-                                            </Button>
-                                        </Link>
-                                        <Link href="/signup" className="w-full">
-                                            <Button
-                                                onClick={() => setOpen(false)}
-                                                variant="default"
-                                                className="block md:hidden w-full"
-                                            >
-                                                Start for free
-                                            </Button>
-                                    </Link>
-                                </>
-                            </AnimationContainer> */}
-                        </motion.div>
+                        </motion.nav>
                     )}
                 </AnimatePresence>
-            </motion.div>
+            </div>
         </header>
     );
 };

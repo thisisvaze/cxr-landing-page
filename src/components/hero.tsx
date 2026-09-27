@@ -1,73 +1,51 @@
 "use client";
 
-import Image from "next/image";
+import { useReducedMotion } from "motion/react";
 import Link from "next/link";
 import AnimationContainer from "./global/animation-container";
 import Images from "./global/images";
 import Wrapper from "./global/wrapper";
 import { Button } from "./ui/button";
 import Marquee from "./ui/marquee";
-import SectionBadge from "./ui/section-badge";
+import HeroBadges from "./hero-badges";
 import { useState } from "react";
 
 const Hero = () => {
+    const reduceMotion = useReducedMotion();
     const [isHovering, setIsHovering] = useState(false);
     
     const companies = [
         Images.comp1,
         Images.comp2,
         Images.comp3,
+        Images.comp4,
+        Images.comp5,
     ];
 
-    const trailerUrl = "https://www.youtube.com/watch?v=um-3guz9FO0";
+    const trailerUrl = "https://www.youtube.com/watch?v=um-3guz9FO0&t=9s"; // skip the stock-footage intro
 
     return (
-        <Wrapper className="pt-32 lg:pt-40 relative min-h-screen w-full flex-1">
+        <Wrapper className="pt-32 relative min-h-screen w-full flex-1">
             <div className="flex flex-col items-center text-center">
                 <div className="flex flex-col items-center gap-6 max-w-3xl">
-                    <AnimationContainer animation="fadeUp" delay={0.2}>
-                        <SectionBadge title="#1 AI Learning App on Meta Quest" />
+                    <AnimationContainer animation="fadeUp" delay={0.2} className="flex justify-center w-full mb-2 md:mb-4">
+                        <HeroBadges />
                     </AnimationContainer>
-                    {/* <AnimationContainer animation="fadeUp" delay={0.3}>
-                        <Image 
-                            src="/images/cxr-logo.png" 
-                            alt="Logo" 
-                            width={250} 
-                            height={100}
-                            className="w-auto h-auto lg:max-w-[80%] max-w-[200px] mx-auto" 
-                            priority
-                        />
-                    </AnimationContainer> */}
-                    <AnimationContainer animation="fadeUp" delay={1.4} className="flex justify-center w-full">
-                    <Image
-                        src="/images/tags.png"
-                        alt="CuriosityXR awards: #3 Product of the Week in Education on Product Hunt, and #1 AI Learning App on the Meta Quest Store"
-                        width={800}
-                        height={380}
-                        quality={100}
-                        className="w-auto h-auto mb-2 md:mb-8 max-w-[300px] md:max-w-[400px]" 
-                    />
-                </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.4}>
-                        <h1 className="text-5xl font-heading lg:text-6xl font-medium !leading-tighter text-transparent bg-clip-text bg-neutral-100">
-                            Learn with AI & <br />
+                        <h1 className="type-display">
+                            Learn with AI & <br className="hidden sm:inline" />
                             1M+ 3D models
                         </h1>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.6}>
-                        <p className="text-lg text-muted-foreground max-w-xl">
-                            CuriosityXR is the AI learning app for Meta Quest. Ask
-                            anything out loud and your AI teacher answers in mixed
-                            reality, with a 3D model you can pick up and hold.
+                        <p className="type-lead max-w-2xl mx-auto text-balance">
+                            Ask anything out loud on Meta Quest. Your AI teacher answers in 3D.
                         </p>
                     </AnimationContainer>
                     <AnimationContainer animation="fadeUp" delay={0.8}>
-                        <div className="flex gap-4">
-                            <Link href={trailerUrl} target="_blank" rel="noopener noreferrer">
-                                <Button variant="outline">Watch Trailer</Button>
-                            </Link>
+                        <div className="flex flex-wrap items-center justify-center gap-3.5">
                             <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
-                                <Button className="magic-button">
+                                <Button className="magic-button rounded-full px-6">
                                     <span className="relative z-10">Get on Meta Quest</span>
                                 </Button>
                             </Link>
@@ -75,17 +53,17 @@ const Hero = () => {
                     </AnimationContainer>
                     
                 </div>
-                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-16">
+                <AnimationContainer animation="fadeUp" delay={1.2} className="mt-10 w-full flex justify-center">
                     <div 
-                        className="relative w-full max-w-[800px] group"
+                        className="relative w-full max-w-[1040px] group"
                         onMouseEnter={() => setIsHovering(true)}
                         onMouseLeave={() => setIsHovering(false)}
                     >
                         <video
-                            src="/images/v.webm"
+                            src={reduceMotion ? undefined : "/images/v.webm"}
                             aria-label="CuriosityXR on Meta Quest: a spoken question turns into an interactive 3D model in mixed reality"
                             poster="/images/v-poster.webp"
-                            autoPlay
+                            autoPlay={!reduceMotion}
                             loop
                             muted
                             playsInline
@@ -124,7 +102,7 @@ const Hero = () => {
                                 Supported by
                             </p>
                             <div className="w-full relative max-w-[calc(100vw-2rem)] lg:max-w-lg">
-                                <Marquee className="[--duration:40s] select-none [--gap:2rem]">
+                                <Marquee pauseOnHover className="[--duration:40s] select-none [--gap:2rem]">
                                     {[...Array(10)].map((_, index) => (
                                         <div key={index} className="flex items-center justify-center text-muted-foreground h-16">
                                             {companies[index % companies.length]({ className: "w-auto h-5" })}

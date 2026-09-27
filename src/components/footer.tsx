@@ -1,34 +1,49 @@
-import { Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import AnimationContainer from './global/animation-container';
 import Wrapper from "./global/wrapper"
-import { LucideProps } from 'lucide-react';
-import Images from "./global/images";
+import { Button } from "./ui/button";
 import { PROFILES } from "@/utils";
-const PRODUCT_LINKS = [
-    { label: "Get CuriosityXR on Meta Quest", href: PROFILES.metaStore, external: true },
-    { label: "AI tutor for VR", href: "/vr-ai-tutor", external: false },
-    { label: "Education on Meta Quest", href: "/meta-quest-education", external: false },
-    { label: "Watch the trailer", href: PROFILES.youtubeTrailer, external: true },
-    { label: "FAQ", href: "/#faq", external: false },
-    { label: "Join the Discord", href: PROFILES.discord, external: true },
+
+// Keep "AI tutor for VR" / "Education on Meta Quest" verbatim: they're the SEO anchor text for those pages.
+const COLUMNS = [
+    {
+        title: "Product",
+        links: [
+            { label: "How it works", href: "/#features" },
+            { label: "Watch the trailer", href: `${PROFILES.youtubeTrailer}&t=9s` },
+            { label: "FAQ", href: "/#faq" },
+            { label: "Learning Content API", href: "/learning-api" },
+        ],
+    },
+    {
+        title: "Learn",
+        links: [
+            { label: "AI tutor for VR", href: "/vr-ai-tutor" },
+            { label: "Education on Meta Quest", href: "/meta-quest-education" },
+            { label: "Published research", href: PROFILES.researchPaper },
+        ],
+    },
+    {
+        title: "Community",
+        links: [
+            { label: "Discord", href: PROFILES.discord },
+            { label: "Product Hunt", href: PROFILES.productHunt },
+            { label: "support@curiosityxr.com", href: "mailto:support@curiosityxr.com" },
+        ],
+    },
 ];
 
-const COMPANY_LINKS = [
-    { label: "Privacy Policy", href: "/privacy-policy", external: false },
-    { label: "CuriosityXR on Product Hunt", href: PROFILES.productHunt, external: true },
-    { label: "Research paper (IEEE AIxVR 2024)", href: PROFILES.researchPaper, external: true },
-];
-
-const SOCIAL_LINKS = [
-    { icon: Linkedin, href: PROFILES.linkedin, label: "CuriosityXR on LinkedIn" },
-    { icon: Twitter, href: PROFILES.x, label: "CuriosityXR on X" },
-];
+const FooterLink = ({ label, href }: { label: string; href: string }) => {
+    const className = "hover:text-white transition-colors";
+    if (href.startsWith("/")) return <Link href={href} className={className}>{label}</Link>;
+    const external = href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" };
+    return <a href={href} className={className} {...external}>{label}</a>;
+};
 
 const Footer = () => {
     return (
-        <footer className="relative border-t border-border pt-16 pb-8 md:pb-0 w-full overflow-hidden">
+        <footer className="relative border-t border-border pt-16 pb-8 w-full overflow-hidden">
             <Wrapper className="">
                 <AnimationContainer animation="fadeIn">
                     <div className="absolute -top-1/8 lg:-top-1/2 inset-x-0 mx-auto bg-primary/50 lg:bg-primary/70 rounded-full w-1/2 h-1/4 blur-[6rem] lg:blur-[12rem]"></div>
@@ -38,119 +53,59 @@ const Footer = () => {
                     <div className="absolute top-0 w-4/5 mx-auto inset-x-0 h-px bg-gradient-to-r from-primary/0 via-primary/80 to-primary/0"></div>
                 </AnimationContainer>
 
-                <div className="grid gap-8 xl:grid-cols-3 xl:gap-8">
+                <div className="grid gap-12 lg:grid-cols-[1fr_2fr]">
                     <AnimationContainer animation="fadeIn">
-                        <div className="flex flex-col items-start justify-start md:max-w-[300px]">
-                            <div className="flex items-center gap-2">
-                                <Image
-                                    src="/images/cxr-logo.png"
-                                    alt="CuriosityXR"
-                                    width={202}
-                                    height={32}
-                                />
-                            </div>
-                            <p className="text-muted-foreground mt-4 text-sm">
-                                CuriosityXR is the #1 AI learning app on Meta Quest. It puts
-                                an AI teacher in your room, answering your questions with
-                                interactive 3D models in mixed reality.
-                                <br />
-                                <br />
-                                Toronto, Canada
+                        <div className="flex max-w-xs flex-col items-start gap-5">
+                            <Image
+                                src="/images/cxr-logo.png"
+                                alt="CuriosityXR"
+                                width={1079}
+                                height={274}
+                                className="h-11 w-auto"
+                            />
+                            <p className="text-sm leading-relaxed text-neutral-400">
+                                An AI teacher in your room. Ask anything out loud and
+                                see the answer in 3D.
                             </p>
-                            <div className="mt-4 text-sm text-muted-foreground">
-                                <p>support@curiosityxr.com</p>
-                            </div>
-                            <div className="flex items-center gap-4 mt-6">
-                                {SOCIAL_LINKS.map((social, index) => (
-                                    <AnimationContainer
-                                        key={index}
-                                        animation="fadeIn"
-                                    >
-                                        <Link
-                                            href={social.href}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            aria-label={social.label}
-                                            className="text-muted-foreground hover:text-primary transition-colors"
-                                        >
-                                            <social.icon className="size-5" />
-                                        </Link>
-                                    </AnimationContainer>
-                                ))}
-                            </div>
+                            <Button asChild size="sm" className="magic-button">
+                                <a href={PROFILES.metaStore} target="_blank" rel="noopener noreferrer">
+                                    <span className="relative z-10">Get on Meta Quest</span>
+                                </a>
+                            </Button>
                         </div>
-                </AnimationContainer>
+                    </AnimationContainer>
 
-                    <div className="grid grid-cols-2 gap-8 xl:col-span-2">
-                        <AnimationContainer animation="fadeIn">
-                            <div>
-                                <h3 className="text-base font-medium">Product</h3>
-                                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                                    {PRODUCT_LINKS.map((link, index) => (
-                                        <AnimationContainer
-                                            key={index}
-                                            animation="fadeIn"
-                                        >
-                                            <li>
-                                                <Link
-                                                    href={link.href}
-                                                    {...(link.external && {
-                                                        target: "_blank",
-                                                        rel: "noopener noreferrer",
-                                                    })}
-                                                    className="hover:text-foreground transition-colors"
-                                                >
-                                                    {link.label}
-                                                </Link>
+                    <AnimationContainer animation="fadeIn">
+                        <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+                            {COLUMNS.map((column) => (
+                                <div key={column.title}>
+                                    <h3 className="text-sm font-medium text-white">{column.title}</h3>
+                                    <ul className="mt-4 space-y-2.5 text-sm text-neutral-400 [overflow-wrap:anywhere]">
+                                        {column.links.map((link) => (
+                                            <li key={link.label}>
+                                                <FooterLink {...link} />
                                             </li>
-                                        </AnimationContainer>
-                                    ))}
-                                </ul>
-                            </div>
-                        </AnimationContainer>
-
-                        <AnimationContainer animation="fadeIn">
-                            <div>
-                                <h3 className="text-base font-medium">Company</h3>
-                                <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
-                                    {COMPANY_LINKS.map((link, index) => (
-                                        <AnimationContainer
-                                            key={index}
-                                            animation="fadeIn"
-                                        >
-                                            <li>
-                                                <Link
-                                                    href={link.href}
-                                                    {...(link.external && {
-                                                        target: "_blank",
-                                                        rel: "noopener noreferrer",
-                                                    })}
-                                                    className="hover:text-foreground transition-colors"
-                                                >
-                                                    {link.label}
-                                                </Link>
-                                            </li>
-                                        </AnimationContainer>
-                                    ))}
-                                </ul>
-                            </div>
-                        </AnimationContainer>
-                    </div>
+                                        ))}
+                                    </ul>
+                                </div>
+                            ))}
+                        </div>
+                    </AnimationContainer>
                 </div>
 
-                <AnimationContainer animation="fadeIn">
-                    <div className="mt-16 border-t border-border/40 py-8 flex flex-col md:flex-row items-center justify-center">
-                        <p className="text-sm text-muted-foreground">
-                        {new Date().getFullYear()} CuriosityXR
-                        </p>
-                    </div>
-                </AnimationContainer>
+                <div className="mt-16 flex flex-col-reverse gap-3 border-t border-white/10 py-6 text-sm text-neutral-500 sm:flex-row sm:items-center sm:justify-between">
+                    <p>© {new Date().getFullYear()} CuriosityXR · Toronto, Canada</p>
+                    <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                        Privacy Policy
+                    </Link>
+                </div>
+
                 <div className="w-full flex justify-center mt-4">
-                    <Image 
-                        src="/images/footer-logo.svg" 
-                        alt="CuriosityXR" 
-                        width={2000} 
-                        height={31}
+                    <Image
+                        src="/images/footer-logo.svg"
+                        alt=""
+                        width={1500}
+                        height={90}
                         className='w-full h-auto'
                     />
                 </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib";
 
 interface MagicalBackgroundProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -19,11 +19,12 @@ export function MagicalBackground({
   accentColor = "#3ABEFF",
   ...props
 }: MagicalBackgroundProps) {
+  const reduceMotion = useReducedMotion();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || reduceMotion) return;
     
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -69,6 +70,7 @@ export function MagicalBackground({
       }
     };
     
+    let animationFrame = 0;
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -110,7 +112,7 @@ export function MagicalBackground({
         if (particle.y > canvas.height) particle.y = 0;
       });
       
-      requestAnimationFrame(animate);
+      animationFrame = requestAnimationFrame(animate);
     };
     
     // Add resize event listener to handle window resizing
@@ -119,9 +121,10 @@ export function MagicalBackground({
     animate();
     
     return () => {
+      cancelAnimationFrame(animationFrame);
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [particleCount, primaryColor, secondaryColor, accentColor]);
+  }, [particleCount, primaryColor, secondaryColor, accentColor, reduceMotion]);
   
   return (
     <div className={cn("absolute inset-0 -z-10 overflow-hidden w-full", className)} {...props}>
@@ -135,7 +138,7 @@ export function MagicalBackground({
       <motion.div 
         className="absolute top-0 left-0 right-0 mx-auto w-3/4 h-1/3 rounded-full opacity-20 blur-[100px]"
         style={{ background: `linear-gradient(to right, ${primaryColor}, ${secondaryColor})` }}
-        animate={{
+        animate={reduceMotion ? { opacity: 0.12, scale: 1 } : {
           opacity: [0.1, 0.2, 0.1],
           scale: [1, 1.1, 1],
         }}
@@ -149,7 +152,7 @@ export function MagicalBackground({
       <motion.div 
         className="absolute bottom-0 left-0 right-0 mx-auto w-3/4 h-1/4 rounded-full opacity-15 blur-[80px]"
         style={{ background: `linear-gradient(to right, ${secondaryColor}, ${accentColor})` }}
-        animate={{
+        animate={reduceMotion ? { opacity: 0.12, scale: 1 } : {
           opacity: [0.1, 0.15, 0.1],
           scale: [1, 1.05, 1],
         }}

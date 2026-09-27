@@ -8,163 +8,83 @@ import { MagicCard } from './magicui/magic-card';
 const Features = () => {
     return (
         <Wrapper className="py-20 lg:py-32">
-            <div className="flex flex-col items-center text-center gap-4 mb-16">
-                <AnimationContainer animation="fadeUp" delay={0.2}>
+            <div className="flex flex-col items-center text-center gap-4 mb-16 max-w-3xl mx-auto">
+                <AnimationContainer animation="fadeUp" delay={0.1}>
                     <SectionBadge title="What is CuriosityXR?" />
                 </AnimationContainer>
 
-                <AnimationContainer animation="fadeUp" delay={0.3}>
-                    <h2 className="text-2xl font-heading md:text-4xl lg:text-5xl font-medium !leading-tight text-transparent bg-clip-text bg-foreground">
-                    Learn with 1M+ 3D Models <br />
-                    & AI Teacher
+                <AnimationContainer animation="fadeUp" delay={0.2}>
+                    <h2 className="type-heading">
+                        Don’t just learn it. <br className="hidden sm:inline" />
+                        See it in your space.
                     </h2>
                 </AnimationContainer>
 
-                <AnimationContainer animation="fadeUp" delay={0.4}>
-                    <p className="text-sm md:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-                        CuriosityXR is an AI learning app for Meta Quest 3, Quest 3S,
-                        Quest 2 and Quest Pro. It&apos;s the first AI teacher that assists
-                        in 3D. Speak a question and the answer appears in your room as
-                        an interactive model you can scale, rotate and pull apart, across
-                        anatomy, astronomy, biology, geology, geography and beyond.
+                <AnimationContainer animation="fadeUp" delay={0.3}>
+                    <p className="type-lead max-w-2xl mx-auto">
+                        Speak any question out loud. Your AI teacher responds in mixed reality with
+                        interactive 3D models you can inspect, scale, and pull apart in real time.
+                    </p>
+                    <p className="mt-4 text-sm text-neutral-400">
+                        For Meta Quest &amp; Meta VR glasses
                     </p>
                 </AnimationContainer>
             </div>
 
-            <div className="flex flex-col gap-6 px-1 md:px-0">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <AnimationContainer animation="fadeRight" delay={0.5}>
-                        <MagicCard className="min-h-[350px]">
-                            <div className="flex flex-col justify-between h-full">
-                                <div className="p-4 lg:p-8">
-                                    <AnimationContainer animation="fadeUp" delay={0.6}>
-                                        <div className="space-y-0">
-                                            <h3 className="text-lg md:text-xl font-medium">
-                                                {FEATURES[0].title}
-                                            </h3>
-                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
-                                                {FEATURES[0].description}
-                                            </p>
-                                        </div>
-                                    </AnimationContainer>
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-[1fr_1.2fr_1fr]">
+                <AnimationContainer animation="fadeUp" delay={0.2} className="min-w-0 sm:col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-1 lg:row-span-2">
+                    <MagicCard className="h-full rounded-2xl border border-violet-400/40">
+                        <div className="flex h-full flex-col items-center bg-gradient-to-b from-violet-500/15 via-violet-500/5 to-transparent text-center">
+                            <div className="px-6 pt-9 sm:pt-12">
+                                <h3 className="font-heading font-medium tracking-tight text-white">
+                                    <span className="block text-8xl leading-none tracking-tighter text-violet-200">1M+</span>
+                                    <span className="mt-3 block text-3xl">3D Models</span>
+                                </h3>
+                                <p className="mx-auto mt-4 max-w-xs text-base leading-relaxed text-neutral-300">
+                                    {FEATURES[4].description}
+                                </p>
+                            </div>
+                            <div className="relative my-5 min-h-[240px] w-full flex-1 sm:min-h-[280px]">
+                                <Image
+                                    src={FEATURES[4].image}
+                                    alt={FEATURES[4].alt}
+                                    fill
+                                    className="object-contain p-3 motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
+                                    sizes="(max-width: 1023px) 90vw, 400px"
+                                />
+                            </div>
+                            <p className="px-6 pb-8 text-sm leading-relaxed text-violet-200/80">
+                                From tiny cells to entire solar systems.
+                            </p>
+                        </div>
+                    </MagicCard>
+                </AnimationContainer>
+
+                {[FEATURES[0], FEATURES[2], FEATURES[1], FEATURES[3]].map((feature) => (
+                    <AnimationContainer key={feature.title} animation="fadeUp" delay={0.3} className="min-w-0">
+                        <MagicCard className="h-full rounded-2xl border border-white/10">
+                            <div className="flex h-full flex-col">
+                                <div className="p-6 pb-3">
+                                    <h3 className="text-xl font-heading font-medium tracking-tight text-white">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="mt-2 text-sm sm:text-[15px] leading-relaxed text-neutral-400">
+                                        {feature.description}
+                                    </p>
                                 </div>
-                                <AnimationContainer animation="fadeUp" delay={0.7}>
-                                    <div className="relative w-full h-[250px] overflow-hidden">
-                                        <Image
-                                            src={FEATURES[0].image}
-                                            alt={FEATURES[0].alt}
-                                            fill
-                                            className="object-cover w-full"
-                                        />
-                                    </div>
-                                </AnimationContainer>
+                                <div className={`relative mt-auto h-[240px] shrink-0 ${feature.flip ? "-scale-x-100" : ""}`}>
+                                    <Image
+                                        src={feature.image}
+                                        alt={feature.alt}
+                                        fill
+                                        className="object-contain object-bottom motion-safe:transition-transform motion-safe:duration-500 motion-safe:group-hover:scale-[1.02]"
+                                        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 320px"
+                                    />
+                                </div>
                             </div>
                         </MagicCard>
                     </AnimationContainer>
-
-                    <AnimationContainer className="hidden lg:block" animation="fadeUp" delay={0.6}>
-                        <MagicCard>
-                            <Image
-                                src="/images/f2.png"
-                                alt="A learner exploring an interactive 3D model with the CuriosityXR AI teacher on Meta Quest"
-                                width={500}
-                                height={350}
-                                className="w-full h-[350px] object-cover"
-                            />
-                        </MagicCard>
-                    </AnimationContainer>
-
-                    <AnimationContainer animation="fadeLeft" delay={0.7} className="hidden lg:block">
-                        <MagicCard className="min-h-[350px]">
-                            <div className="flex flex-col justify-between h-full">
-                                <div className="p-4 lg:p-8">
-                                    <AnimationContainer animation="fadeUp" delay={0.8}>
-                                        <div className="space-y-0">
-                                            <h3 className="text-lg md:text-xl font-medium">
-                                                {FEATURES[2].title}
-                                            </h3>
-                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
-                                                {FEATURES[2].description}
-                                            </p>
-                                        </div>
-                                    </AnimationContainer>
-                                </div>
-                                <AnimationContainer animation="fadeUp" delay={0.9}>
-                                    <div className="relative w-full h-[150px] lg:h-[200px] overflow-hidden mt-auto">
-                                        <Image
-                                            src={FEATURES[2].image}
-                                            alt={FEATURES[2].alt}
-                                            fill
-                                            className="object-cover w-full object-bottom"
-                                        />
-                                    </div>
-                                </AnimationContainer>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-                    <AnimationContainer animation="fadeRight" delay={0.8} className="lg:col-span-3">
-                        <MagicCard className="min-h-[250px] lg:min-h-[350px]">
-                            <div className="flex flex-col justify-between h-full">
-                                <div className="p-4 lg:p-8">
-                                    <AnimationContainer animation="fadeUp" delay={0.9}>
-                                        <div className="space-y-2">
-                                            <h3 className="text-lg md:text-xl font-medium">
-                                                {FEATURES[3].title}
-                                            </h3>
-                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
-                                                {FEATURES[3].description}
-                                            </p>
-                                        </div>
-                                    </AnimationContainer>
-                                </div>
-                                <AnimationContainer animation="fadeUp" delay={1}>
-                                    <div className="relative w-full h-[200px] lg:h-[350px] overflow-hidden mt-auto">
-                                        <Image
-                                            src={FEATURES[3].image}
-                                            alt={FEATURES[3].alt}
-                                            fill
-                                            className="object-cover w-full object-bottom"
-                                            sizes="(max-width: 768px) 100vw, 60vw"
-                                        />
-                                    </div>
-                                </AnimationContainer>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-
-                    <AnimationContainer animation="fadeLeft" delay={0.9} className="lg:col-span-2">
-                        <MagicCard className="min-h-[250px] lg:min-h-[350px]">
-                            <div className="flex flex-col justify-between h-full">
-                                <div className="p-4 lg:p-8">
-                                    <AnimationContainer animation="fadeUp" delay={1}>
-                                        <div className="">
-                                            <h3 className="text-lg md:text-xl font-medium">
-                                                {FEATURES[4].title}
-                                            </h3>
-                                            <p className="text-lg md:text-xl text-muted-foreground max-w-md">
-                                                {FEATURES[4].description}
-                                            </p>
-                                        </div>
-                                    </AnimationContainer>
-                                </div>
-                                <AnimationContainer animation="fadeUp" delay={1.1}>
-                                    <div className="relative w-full h-[250px] lg:h-[350px] overflow-hidden mt-auto">
-                                        <Image
-                                            src={FEATURES[4].image}
-                                            alt={FEATURES[4].alt}
-                                            fill
-                                            className="object-cover w-full object-bottom"
-                                            sizes="(max-width: 768px) 100vw, 40vw"
-                                        />
-                                    </div>
-                                </AnimationContainer>
-                            </div>
-                        </MagicCard>
-                    </AnimationContainer>
-                </div>
+                ))}
             </div>
         </Wrapper>
     );

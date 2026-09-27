@@ -5,9 +5,7 @@ import { FAQS } from "@/constants";
 import { DEFAULT_DESCRIPTION, DEFAULT_TITLE } from "@/utils";
 import Features from "@/components/features";
 import Hero from "@/components/hero";
-import HowItWorks from "@/components/how-it-works";
-import Perks from "@/components/perks";
-// import PlatformMetrics from "@/components/platform-metrics";
+import Endorsements from "@/components/endorsements";
 import Testimonials from "@/components/testimonials";
 import Summary from "@/components/summary";
 const HomePage = () => {
@@ -28,17 +26,9 @@ const HomePage = () => {
                 <Summary />
             </section>
 
-            <section className="w-full">
+            <section className="w-full scroll-mt-24" id="features">
                 <Features />
             </section>
-{/* 
-            <section className="w-full">
-                <Perks />
-            </section> */}
-
-         {/* <section className="w-full">
-                <HowItWorks />
-            </section> */}
 
 {/*          
             <section className="w-full">
@@ -46,14 +36,14 @@ const HomePage = () => {
             </section> */}
 
             <section className="w-full">
+                <Endorsements />
+            </section>
+
+            <section className="w-full">
                 <Testimonials />
             </section>
 
-            {/* <section className="w-full">
-                <PlatformMetrics />
-            </section> */}
-
-            <section className="w-full" id="faq">
+            <section className="w-full scroll-mt-24" id="faq">
                 <FAQ />
             </section>
 

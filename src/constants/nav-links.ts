@@ -1,12 +1,11 @@
-export const NAV_LINKS = [
-    // {
-    //     name: "Follow on X",
-    //     link: "https://x.com/curiosityxr",
-    //     target: "_blank",
-    // },
-    {
-        name: "Join Discord",
-        link: "https://discord.gg/aF2cRG6k62",
-        target: "_blank",
-    },
+export const NAV_LINKS: {
+    name: string;
+    link: string;
+    target?: string;
+    teaser?: boolean;
+    /** Paths that highlight this link; defaults to [link]. */
+    match?: string[];
+}[] = [
+    { name: "Resources", link: "/resources", match: ["/resources", "/vr-ai-tutor", "/meta-quest-education"] },
+    { name: "API", link: "/learning-api" },
 ];
