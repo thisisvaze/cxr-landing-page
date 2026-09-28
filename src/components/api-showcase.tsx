@@ -85,20 +85,19 @@ export default function ApiShowcase() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 p-3 sm:p-5">
-                    <div className={`${panel} ${ring("model")} col-span-2 h-64 bg-[radial-gradient(circle_at_50%_65%,rgba(249,115,22,0.22),transparent_60%)] sm:h-80`}>
+                    {/* Plain wheel scrolls the page; pinch (ctrl+wheel) and touch still zoom the model. */}
+                    <div onWheelCapture={(e) => { if (!e.ctrlKey) e.stopPropagation(); }} className={`${panel} ${ring("model")} col-span-2 h-64 bg-[radial-gradient(circle_at_50%_65%,rgba(249,115,22,0.22),transparent_60%)] sm:h-80`}>
                         <model-viewer
                             src={MODEL_URL}
                             alt="3D volcano with glowing magma channels running down its slopes"
                             camera-controls=""
                             auto-rotate=""
                             rotation-per-second="18deg"
-                            disable-zoom=""
                             interaction-prompt="none"
                             shadow-intensity="1"
                             loading="lazy"
                             style={{ width: "100%", height: "100%", background: "transparent" }}
                         />
-                        <span className={chip}>3D model · drag to rotate</span>
                     </div>
                     <figure className={`${panel} ${ring("diagram")} flex h-40 items-center bg-white sm:h-56`}>
                         <Image src="/images/api/volcano-diagram.jpg" alt="Labeled cross-section of a volcano: ash cloud and gas, crater, vent, lava flow, layers of ash and lava, conduit, magma chamber, and crust" width={1200} height={896} sizes="(max-width: 1023px) 50vw, 360px" className="h-auto max-h-full w-full object-contain" />

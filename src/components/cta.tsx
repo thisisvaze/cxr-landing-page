@@ -64,7 +64,7 @@ const CTA = () => {
                     <AnimationContainer animation="fadeUp" delay={0.2} className="w-24 sm:w-28 mb-6">
                         <Image
                             src="/images/cxr_sticker.png"
-                            alt="CuriosityXR, the #1 AI learning app on Meta Quest"
+                            alt="CuriosityXR sticker"
                             width={300}
                             height={300}
                             className="w-full h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.6)]"
@@ -76,10 +76,10 @@ const CTA = () => {
                             <Laurel className="w-6 h-12 shrink-0 text-white/50" />
                             <div className="flex flex-col leading-tight">
                                 <span className="font-heading text-[15px] font-semibold tracking-tight text-white">
-                                    #1 AI Learning App
+                                    #3 Product of the Week
                                 </span>
                                 <span className="mt-0.5 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400">
-                                    Meta Quest Store
+                                    Product Hunt · Education
                                 </span>
                             </div>
                             <Laurel className="w-6 h-12 shrink-0 text-white/50 -scale-x-100" />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, Box, MessageCircle, Mic } from "lucide-react";
+import { Box, MessageCircle, Mic } from "lucide-react";
 import Wrapper from "./global/wrapper";
 import { Button } from "./ui/button";
 import SummaryScene from "./summary-scene";
@@ -35,12 +35,12 @@ const Summary = () => {
                         </ol>
 
                         <div className={styles.actions}>
-                            <Button asChild size="lg" className={styles.cta}>
+                            <Button asChild className="magic-button rounded-full px-6">
                                 <Link href="https://vr.meta.me/s/2Rgf0BFArrcy5sf" target="_blank" rel="noopener noreferrer">
-                                    Get on Meta Quest <ArrowUpRight aria-hidden="true" />
+                                    <span className="relative z-10">Get on Meta Quest</span>
                                 </Link>
                             </Button>
-                            <p>One question. A million things to discover.</p>
+                            <p>Join 3,000+ learners.</p>
                         </div>
                     </div>
 

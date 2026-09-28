@@ -79,10 +79,10 @@ export const FOUNDER = {
 /** Keep in sync with the Meta Horizon Store listing. */
 export const APP_PRICE_USD = "19.99";
 
-export const DEFAULT_TITLE = `${APP_NAME} | #1 AI Learning App on Meta Quest`;
+export const DEFAULT_TITLE = `${APP_NAME} | AI Tutor & 1M+ 3D Models on Meta Quest`;
 
 export const DEFAULT_DESCRIPTION =
-    `${APP_NAME} is the #1 AI learning app on Meta Quest. Ask anything out loud and your AI teacher ` +
+    `${APP_NAME} is an AI learning app for Meta Quest. Ask anything out loud and your AI teacher ` +
     `answers with 1M+ interactive 3D models in mixed reality. Quest 3, 3S, Quest 2 & Quest Pro.`;
 
 /**
@@ -116,7 +116,7 @@ const DEFAULT_OG_IMAGE = {
     url: "/opengraph-image",
     width: 1200,
     height: 630,
-    alt: `${APP_NAME}, the #1 AI learning app on Meta Quest`,
+    alt: `${APP_NAME}, the AI learning app for Meta Quest`,
 };
 
 export const generateMetadata = ({

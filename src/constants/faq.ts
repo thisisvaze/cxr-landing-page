@@ -36,9 +36,9 @@ export const FAQS: FAQItem[] = [
             "Yes. Homeschooling families are one of the largest groups of CuriosityXR users, including parents of neurodivergent and autistic learners who find hands-on 3D exploration more engaging than worksheets. There are no quizzes or forced lesson plans. Learners lead, and the AI teacher follows.",
     },
     {
-        question: "Is CuriosityXR the #1 AI learning app on Meta Quest?",
+        question: "How is CuriosityXR different from other Meta Quest learning apps?",
         answer:
-            "CuriosityXR is the leading AI-native learning app on the Meta Horizon Store. It was voted #3 Product of the Week in Education on Product Hunt, is used by more than 2,000 learners, homeschoolers and teachers, and is consistently listed as the top AI teacher app for Meta Quest headsets. Unlike VR apps with pre-built lessons, CuriosityXR generates the lesson live from whatever you ask.",
+            "Unlike VR apps with pre-built lessons, CuriosityXR generates the lesson live from whatever you ask, with an AI teacher and 1M+ interactive 3D models. It was voted #3 Product of the Week in Education on Product Hunt and is used by more than 3,000 learners, homeschoolers and teachers.",
     },
     {
         question: "What subjects can you learn with CuriosityXR?",
