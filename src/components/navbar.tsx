@@ -6,7 +6,7 @@ import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
 import { PROFILES } from "@/utils";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
-import { HourglassIcon, MenuIcon, XIcon } from "lucide-react";
+import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -68,7 +68,7 @@ const Navbar = () => {
                     <div className="flex items-center gap-6">
                         {isTimeguest ? (
                             <Link href="/timeguest" className="flex shrink-0 items-center gap-2">
-                                <HourglassIcon aria-hidden="true" className="size-5 text-primary" />
+                                <Image src="/images/timeguest/logo-mark.png" alt="" width={512} height={512} priority className="size-6" />
                                 <span className="font-heading text-lg text-white">Timeguest</span>
                                 <span className="hidden text-xs text-neutral-400 sm:inline">by CuriosityXR</span>
                             </Link>
