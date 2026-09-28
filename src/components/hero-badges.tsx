@@ -35,7 +35,7 @@ const HeroBadges = () => {
                 href={PROFILES.metaStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="CuriosityXR: #1 AI Learning App on Meta Quest Store"
+                aria-label="CuriosityXR: AI Tutor and 1M+ 3D Models on Meta Quest Store"
                 className="group flex items-center gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 rounded-xl bg-gradient-to-r from-[#fffbf7] via-white to-[#edf6ff] border border-[#0081fb]/25 shadow-sm hover:border-[#0081fb]/60 hover:shadow-md hover:scale-[1.02] transition-all duration-200"
             >
                 <svg
@@ -48,7 +48,7 @@ const HeroBadges = () => {
                 </svg>
                 <div className="flex flex-col text-left leading-tight">
                     <span className="text-xs sm:text-[13px] font-semibold text-neutral-900 tracking-tight">
-                        #1 AI Learning App
+                        AI Tutor + 1M 3D Models
                     </span>
                     <span className="text-[10px] sm:text-[11px] font-medium text-neutral-600">
                         on Meta Quest Store

@@ -71,7 +71,7 @@ export const ENDORSEMENTS = [
         content:
             "As a science teacher, CuriosityXR made my eyes light up! Teaching in 3D without having to leave the classroom would be game changing for my younger students!",
         author: "Jonathan B",
-        role: "Founder, Scooli",
+        role: "Founder, Upskailed",
         image: "/images/testimonial-03.jpg",
     },
 ];

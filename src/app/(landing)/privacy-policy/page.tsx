@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
 
           <div className="prose prose-lg prose-invert max-w-none">
-            <p>This policy explains how CuriosityXR handles personal information when you use our app, website, and CXR Plus services.</p>
-            <p className="text-muted-foreground text-sm mt-2">Last updated: September 5, 2026</p>
+            <p>This policy explains how CuriosityXR handles personal information when you use our apps (CuriosityXR and Houseguest), website, and subscription services such as CXR Plus.</p>
+            <p className="text-muted-foreground text-sm mt-2">Last updated: September 27, 2026</p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Information we process</h2>
             <p>
@@ -34,6 +34,11 @@ export default function PrivacyPolicyPage() {
               type, usage and error logs, and contact details you provide to support.
             </p>
             <p>
+              Some features use your headset&apos;s passthrough camera, for example when you ask about an object
+              in front of you. Camera images are sent to our AI service providers only to answer that request.
+              We do not keep them in your conversation history or use them to identify you.
+            </p>
+            <p>
               For purchases and subscriptions, we use your app-scoped Meta User ID, purchase records,
               subscription and trial status, and billing period dates to verify and restore access. Meta
               handles checkout and payment details.
@@ -41,7 +46,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-2xl font-bold mt-8 mb-4">How we use and share information</h2>
             <p>
-              We use this information to provide personalized AI tutoring, speech features, learning content,
+              We use this information to provide personalized AI tutoring and conversation practice, speech features, learning content,
               subscription access, support, and service improvements. Audio and relevant conversation or
               content data are sent to service providers to transcribe speech, generate responses and visuals,
               and provide spoken answers.
@@ -68,7 +73,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Children</h2>
             <p>
-              CuriosityXR is not intended for children under 13. We do not knowingly collect personal
+              Our apps are not intended for children under 13. We do not knowingly collect personal
               information from children under 13. Contact us if you believe a child has provided data so we
               can address it.
             </p>

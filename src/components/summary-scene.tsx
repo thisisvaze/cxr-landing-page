@@ -34,10 +34,10 @@ const SummaryScene = () => {
                 }}
             >
                 <Image
-                    src="/images/illustrations/saturn-spatial-learning-alex.png"
-                    alt="A learner explores icy fragments in a room-scale model of Saturn’s rings with Alex, the AI teacher wearing his cyan visor and teal jacket"
+                    src="/images/illustrations/saturn-quest-alex.jpg"
+                    alt="Mixed reality view of a living room: the learner holds an ice fragment from Saturn’s rings while Alex, the AI teacher in his cyan visor and green jacket, points at the rings"
                     width={1536}
-                    height={1024}
+                    height={1030}
                     sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1279px) 55vw, 640px"
                     className={styles.image}
                 />

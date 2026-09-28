@@ -31,7 +31,7 @@ const Testimonials = () => {
 
                 <AnimationContainer animation="fadeUp" delay={0.4}>
                     <p className="type-lead max-w-xl mx-auto">
-                        More than 2,000 homeschooling families, teachers and curious
+                        More than 3,000 homeschooling families, teachers and curious
                         learners use CuriosityXR on Meta Quest.
                     </p>
                 </AnimationContainer>

@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { APP_NAME } from "@/utils";
 
-export const alt = `${APP_NAME}, the #1 AI learning app on Meta Quest`;
+export const alt = `${APP_NAME}, the AI learning app for Meta Quest`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -55,7 +55,7 @@ export default async function OpenGraphImage() {
                             fontSize: "24px",
                         }}
                     >
-                        #1 AI Learning App on Meta Quest
+                        AI Tutor & 1M+ 3D Models on Meta Quest
                     </div>
                     <div
                         style={{
