@@ -22,6 +22,8 @@ export const YOUTUBE_VIDEO_ID = "um-3guz9FO0";
 /** Canonical off-site profiles — used for `sameAs` in JSON-LD and OG links. */
 export const PROFILES = {
     metaStore: "https://www.meta.com/experiences/curiosityxr-interactive-ai-learning/8662430537161741/",
+    // Timeguest's Coming Soon listing; Meta redirects the bare app ID to the full store URL.
+    timeguestStore: "https://www.meta.com/experiences/1885949812385979/",
     productHunt: "https://www.producthunt.com/products/curiosityxr",
     discord: "https://discord.gg/aF2cRG6k62",
     youtubeTrailer: `https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}`,

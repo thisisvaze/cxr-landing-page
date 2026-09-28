@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
 
           <div className="prose prose-lg prose-invert max-w-none">
-            <p>This policy explains how CuriosityXR handles personal information when you use our apps (CuriosityXR and Houseguest), website, and subscription services such as CXR Plus.</p>
-            <p className="text-muted-foreground text-sm mt-2">Last updated: September 27, 2026</p>
+            <p>This policy explains how CuriosityXR handles personal information when you use our apps (CuriosityXR, Houseguest and Timeguest), website, and subscription services such as CXR Plus.</p>
+            <p className="text-muted-foreground text-sm mt-2">Last updated: September 28, 2026</p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Information we process</h2>
             <p>

@@ -12,7 +12,7 @@ export const metadata = buildMetadata({ title: `${TITLE} | CuriosityXR`, descrip
 
 // ponytail: hand-listed cards; move to MDX posts once there are more than a handful.
 const RESOURCES = [
-    { tag: "Guide", title: "AI tutor for VR", description: "How an AI tutor teaches in 3D.", href: "/vr-ai-tutor", image: "/images/covers/ai-tutor.jpg" },
+    { tag: "Guide", title: "AI tutor for VR", description: "How an AI tutor teaches in 3D.", href: "/vr-ai-tutor", image: "/images/covers/vr-tutor.jpg" },
     { tag: "Guide", title: "Education on Meta Quest", description: "Live lessons vs. lesson-based VR apps.", href: "/meta-quest-education", image: "/images/covers/meta-quest-education.jpg" },
     { tag: "Podcast", title: "VR in Education, Episode 139", description: "Curiosity-driven learning in mixed reality.", href: PROFILES.podcast, image: "/images/covers/podcast.jpg" },
     { tag: "Research", title: "Published research", description: "Our paper on IEEE Xplore.", href: PROFILES.researchPaper, image: "/images/covers/research.jpg" },

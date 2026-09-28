@@ -42,5 +42,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "monthly",
             priority: 0.8,
         },
+        {
+            url: `${SITE_URL}/timeguest`,
+            lastModified: "2026-09-28",
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
     ];
 }
