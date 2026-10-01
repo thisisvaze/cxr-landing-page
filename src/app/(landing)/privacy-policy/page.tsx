@@ -21,8 +21,8 @@ export default function PrivacyPolicyPage() {
           <h1 className="text-4xl md:text-5xl font-bold mb-8">Privacy Policy</h1>
 
           <div className="prose prose-lg prose-invert max-w-none">
-            <p>This policy explains how CuriosityXR handles personal information when you use our apps (CuriosityXR and Houseguest), website, and subscription services such as CXR Plus.</p>
-            <p className="text-muted-foreground text-sm mt-2">Last updated: September 27, 2026</p>
+            <p>This policy explains how CuriosityXR handles personal information when you use our apps (CuriosityXR, Houseguest and Timeguest), website, and subscription services such as CXR Plus.</p>
+            <p className="text-muted-foreground text-sm mt-2">Last updated: October 1, 2026</p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Information we process</h2>
             <p>
@@ -38,10 +38,36 @@ export default function PrivacyPolicyPage() {
               in front of you. Camera images are sent to our AI service providers only to answer that request.
               We do not keep them in your conversation history or use them to identify you.
             </p>
+            <h2 className="text-2xl font-bold mt-8 mb-4">Meta platform data we collect</h2>
             <p>
-              For purchases and subscriptions, we use your app-scoped Meta User ID, purchase records,
-              subscription and trial status, and billing period dates to verify and restore access. Meta
-              handles checkout and payment details.
+              When you open one of our apps on a Meta Quest headset, we receive the following data from the
+              Meta Horizon platform:
+            </p>
+            <ul>
+              <li>
+                <strong>User ID.</strong> Your app-scoped Meta User ID, a number that identifies your account
+                within a single app. It does not reveal your name, email address, or Meta profile.
+              </li>
+              <li>
+                <strong>Purchases and subscriptions.</strong> Whether you own the app, your purchase records,
+                subscription and trial status, and billing period dates. Meta handles checkout and payment
+                details; we never receive your payment information.
+              </li>
+            </ul>
+            <p>We use your User ID to:</p>
+            <ul>
+              <li>confirm that you are signed in to a genuine Meta account that owns the app;</li>
+              <li>check and restore your purchases and CXR Plus subscription;</li>
+              <li>
+                store your learning profile and conversation memory under that ID, so the app can remember
+                you between sessions;
+              </li>
+              <li>link usage and error logs to an account so we can fix problems and prevent abuse.</li>
+            </ul>
+            <p>
+              We store your User ID on our servers together with the data above. We do not sell it, use it
+              for advertising, or share it with anyone other than the service providers that host our
+              services.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">How we use and share information</h2>
@@ -60,9 +86,17 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-2xl font-bold mt-8 mb-4">Retention and your choices</h2>
             <p>
               We retain personal information as needed to provide our services, resolve issues, and meet legal
-              obligations. You can control microphone access through your device settings. To request access,
-              correction, or deletion of your data, email <a href="mailto:support@curiosityxr.com" className="text-indigo-400 hover:underline">support@curiosityxr.com</a>. We may verify your identity before handling
-              your request. We will delete your data on request unless retention is required by law.
+              obligations. You can control microphone access through your device settings.
+            </p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">How to delete your data</h2>
+            <p>
+              You can ask us to delete your data at any time. Email <a href="mailto:support@curiosityxr.com?subject=Data%20deletion%20request" className="text-indigo-400 hover:underline">support@curiosityxr.com</a> with
+              the subject &quot;Data deletion request&quot; and tell us which app you use. We will reply to
+              confirm which account is yours, then delete your Meta User ID and everything stored under it
+              (learning profile, conversation memory, conversation history, and usage logs) within 30 days,
+              unless we are required by law to keep it. You can use the same address to request access to
+              or correction of your data.
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4">Security</h2>
