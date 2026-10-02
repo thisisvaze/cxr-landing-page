@@ -61,3 +61,31 @@ export const QUEST_EDUCATION_FAQS: FAQItem[] = [
             "Anatomy, astronomy, biology, geology, geography and history are the most common. Popular starting points are the human heart, the solar system, volcanoes, DNA and world maps. Because every answer is generated on demand from a 1M+ model library, the practical subject range is much wider than any fixed list.",
     },
 ];
+
+export const TIMEGUEST_FAQS: FAQItem[] = [
+    {
+        question: "Can you really talk to historical figures with AI?",
+        answer:
+            "Yes. In Timeguest you speak out loud and a guest from history answers in their own voice, in mixed reality in your room. The guests are AI recreations made for learning, not the real people, and they will tell you so if you ask.",
+    },
+    {
+        question: "Who are the guests in Timeguest?",
+        answer:
+            "The first four guests are a surprise until launch. New guests join over time, and you can ask your current guest to swap in another one mid-conversation.",
+    },
+    {
+        question: "How accurate are the guests?",
+        answer:
+            "They are built to stay truthful: they say when history is uncertain and never invent quotes or events. They are still AI and can make mistakes, so check important facts before you rely on them.",
+    },
+    {
+        question: "Which headsets does Timeguest support?",
+        answer:
+            "Meta Quest 3, Meta Quest 3S and Meta VR Glasses when they launch. Timeguest uses colour passthrough so your guest appears in your real room, works with your hands and voice, and needs an internet connection.",
+    },
+    {
+        question: "Who is Timeguest for?",
+        answer:
+            "Anyone aged 13 and up who is curious about history, science or art. Students use it to hear ideas explained by the people who had them; adults use it to follow their own questions.",
+    },
+];

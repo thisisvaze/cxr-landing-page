@@ -18,7 +18,6 @@ const Hero = () => {
         Images.comp1,
         Images.comp2,
         Images.comp3,
-        Images.comp4,
         Images.comp5,
     ];
 

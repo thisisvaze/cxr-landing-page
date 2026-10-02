@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/constants";
 import { useClickOutside } from "@/hooks";
 import { cn } from "@/lib";
+import { PROFILES } from "@/utils";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { MenuIcon, XIcon } from "lucide-react";
 import Image from "next/image";
@@ -30,10 +31,12 @@ const BLUR_LAYERS = Array.from({ length: BLUR_LAYER_COUNT }, (_, index) => {
 const Navbar = () => {
     const pathname = usePathname();
     const isApiPage = pathname === "/learning-api";
+    const isTimeguest = pathname === "/timeguest";
+    const links = isTimeguest ? [] : NAV_LINKS;
     const isActive = (link: (typeof NAV_LINKS)[number]) =>
         (link.match ?? [link.link]).some((path) => pathname === path || pathname.startsWith(`${path}/`));
-    const ctaHref = isApiPage ? "#request-access" : "https://vr.meta.me/s/2Rgf0BFArrcy5sf";
-    const ctaLabel = isApiPage ? "Request API access" : "Get on Meta Quest";
+    const ctaHref = isApiPage ? "#request-access" : isTimeguest ? PROFILES.timeguestStore : "https://vr.meta.me/s/2Rgf0BFArrcy5sf";
+    const ctaLabel = isApiPage ? "Request API access" : isTimeguest ? "Wishlist on Meta Quest" : "Get on Meta Quest";
     const [open, setOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
 
@@ -63,12 +66,20 @@ const Navbar = () => {
             <div ref={ref} className="relative">
                 <div className="relative mx-auto flex h-16 w-full items-center justify-between px-4 lg:max-w-screen-xl lg:px-20">
                     <div className="flex items-center gap-6">
-                        <Link href="/" className="shrink-0">
-                            <Image src="/images/cxr-logo.png" alt="CuriosityXR" width={1079} height={274} priority className="h-8 w-auto" />
-                        </Link>
+                        {isTimeguest ? (
+                            <Link href="/timeguest" className="flex shrink-0 items-center gap-2">
+                                <Image src="/images/timeguest/logo-mark.png" alt="" width={512} height={512} priority className="size-6" />
+                                <span className="font-heading text-lg text-white">Timeguest</span>
+                                <span className="hidden text-xs text-neutral-400 sm:inline">by CuriosityXR</span>
+                            </Link>
+                        ) : (
+                            <Link href="/" className="shrink-0">
+                                <Image src="/images/cxr-logo.png" alt="CuriosityXR" width={1079} height={274} priority className="h-8 w-auto" />
+                            </Link>
+                        )}
 
                         <nav className="hidden items-center gap-1 text-sm font-medium text-neutral-400 lg:flex">
-                            {NAV_LINKS.map((link) => (
+                            {links.map((link) => (
                                 <Link
                                     key={link.link}
                                     href={link.link}
@@ -92,7 +103,7 @@ const Navbar = () => {
                                 <span className="relative z-10">{ctaLabel}</span>
                             </Link>
                         </Button>
-                        {NAV_LINKS.length > 0 && (
+                        {links.length > 0 && (
                             <button
                                 type="button"
                                 aria-label={open ? "Close menu" : "Open menu"}
@@ -117,7 +128,7 @@ const Navbar = () => {
                             transition={{ duration: 0.2 }}
                             className="mx-4 flex flex-col gap-1 rounded-2xl border border-white/10 bg-neutral-900/90 p-2 shadow-xl backdrop-blur-xl lg:hidden"
                         >
-                            {NAV_LINKS.map((link) => (
+                            {links.map((link) => (
                                 <Link
                                     key={link.link}
                                     href={link.link}
